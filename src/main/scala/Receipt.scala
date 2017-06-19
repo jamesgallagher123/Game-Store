@@ -8,3 +8,4 @@ class Receipt(floorStaff: FloorStaff, customer: Customer, itemId1: Int,
   val price: Double = price1
   val date: String = date1
 }
+//comment
