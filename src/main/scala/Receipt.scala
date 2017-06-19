@@ -1,6 +1,3 @@
-/**
-  * Created by Administrator on 19/06/2017.
-  */
 class Receipt(floorStaff: FloorStaff, customer: Customer, itemId1: Int,
               itemName1: String, quantity1: Int, price1: Double, date1: String) {
   val floorStaffId: Int = floorStaff.id
