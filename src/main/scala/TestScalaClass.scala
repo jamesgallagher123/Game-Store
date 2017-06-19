@@ -1,3 +1,3 @@
-class  TestScalaClass{
+class TestScalaClass {
    print("Hello World")
 }
