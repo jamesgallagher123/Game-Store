@@ -1,7 +1,5 @@
-/**
-  * Created by Profile on 19/06/2017.
-  */
-class Customer extends Person{
-  override val id: Int = _
-  override val fullName: String = _
+class Customer(i: Int, fn: String) extends Person{
+  val id: Int = i
+  val fullName: String = fn
+  var points: Int = 0
 }
