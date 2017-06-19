@@ -1,2 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 workspace.xml
+.gitignore
+project/target/config-classes/
+project/target/scala-2.10/
+project/target/streams/compile/incCompileSetup/
