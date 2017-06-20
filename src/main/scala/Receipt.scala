@@ -9,3 +9,5 @@ class Receipt(floorStaff: FloorStaff, customer: Customer, itemId1: Int,
   val date: String = date1
 }
 //comment
+
+//github is shit
