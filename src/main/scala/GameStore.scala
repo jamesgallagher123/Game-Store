@@ -69,6 +69,20 @@ class GameStore {
     })
   }
 
+  def expectedProfit(): Float = {
+    //find every date that has a receipt
+    var dates: Set[String] = Set()
+    receiptListBuffer.foreach { x =>
+      dates += x.date
+    }
+    var total: Float = 0
+    var numberOfDays = dates.size
+    //add up total of each day and divide by number of days
+    dates.foreach(x => total += getDaysProfit(x))
+    total / numberOfDays
+  }
+
+
   def printReceipt(receipt: Receipt, floorStaff: FloorStaff, paidWithPoints: Boolean): Double = {
     receipt.items.foreach(i =>println(s"ID: ${i.id} | Product: ${i.fullName} | Quantity: ${i.quantity} | Total Price: ${i.price*i.quantity}"))
     println("You have been served by " + floorStaff.fullName)
@@ -81,3 +95,4 @@ class GameStore {
     a
   }
 }
+
