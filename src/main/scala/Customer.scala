@@ -3,5 +3,5 @@ class Customer(i: Int, fn: String) extends Person{
   val fullName: String = fn
   var points: Int = 0
 
-  override def toString = s"Customer | ID: $id | Full Name: $fullName | User Points: $points"
+  override def toString = s"Customer | ID: $id | Full Name: $fullName | User Points: $points "
 }
