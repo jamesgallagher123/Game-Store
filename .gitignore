@@ -1,6 +1,7 @@
 *.class
 *.log
 *.idea
+*.xml
 # sbt specific
 dist/*
 target/

@@ -33,21 +33,37 @@ class GameStore {
     receiptItems.clear
   }
 
-  def buyGame(gameName: String, quantity: Int): Unit = {
+  def buyItem(itemName: String, q: Int): Unit = {
     itemsListBuffer.foreach(i => {
-      if (i.fullName == gameName) {
-        if (i.quantity >= quantity) {
-          for(j<-0 until quantity) {
+      if (i.fullName == itemName) {
+        if (i.quantity >= q) {
+          for (j <- 0 until q) {
             receiptItems += i
           }
-          i.quantity = i.quantity - quantity
+          i.quantity -= q
         }
       }
     })
   }
 
-  def checkout: Unit = {
+  def checkout(): Unit = {
     val receipt = new Receipt(receiptItems, "today")
     receipt.total
+  }
+
+  def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
+    itemsListBuffer.foreach(i => if (i.id.equals(id)) {
+      customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
+        if (j.points >= i.price && i.quantity >= quantity) {
+          for(k <- 0 until quantity) {
+            receiptItems += i
+            j.points -= i.price.toInt
+            println("Successfully purchased with points")
+          }
+        }
+        else println("Invalid points to make purchase")
+      })
+      i.quantity -= quantity
+    })
   }
 }

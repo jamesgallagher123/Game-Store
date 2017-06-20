@@ -7,7 +7,7 @@ class Receipt(itemsList: ListBuffer[Items], date1: String) {
   def total: Double = calculatePrice(items)
   def calculatePrice(items: ListBuffer[Items]): Double = {
     var total: Double = 0
-    items.foreach(x => total += x.price * x.quantity)
+    items.foreach(x => total += x.price)
     total
   }
 }
