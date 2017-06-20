@@ -5,12 +5,12 @@ class Login(floorStaff: FloorStaff, manager: Manager) {
   val floorstaffPassword: String = "fspass"
   val managerLogin: String = "manager1"
   val managerPassword: String = "managerpass"
-  val sc = new Scanner(System.in)
   var userType: String = _
-  var username: String = sc.next()
-  var password: String = sc.next()
 
   def loginScreenInput(): Unit  = {
+    val sc = new Scanner(System.in)
+    var username: String = sc.next()
+    var password: String = sc.next()
     println("~Login~")
     println("Username: " + username)
     println("Password: " + password)
@@ -18,11 +18,11 @@ class Login(floorStaff: FloorStaff, manager: Manager) {
   }
 
   def loginScreenLogic(user: String, pass: String) = {
-    if (username == floorstaffLogin && password == floorstaffPassword) {
+    if (user == floorstaffLogin && pass == floorstaffPassword) {
       println("floorstaff login successful")
-      userType = "floorStaff"
+      userType = "floorstaff"
     }
-    else if (username == managerLogin && password == managerPassword) {
+    else if (user == managerLogin && pass == managerPassword) {
       println("manager login successful")
       userType = "manager"
     }
