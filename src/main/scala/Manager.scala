@@ -5,5 +5,5 @@ class Manager(idc:Int, fnc:String) extends Person{
   override val id: Int = idc
   override val fullName: String = fnc
 
-  override def toString = s"Manager | ID: $id | Full Name: $fullName "
+  override def toString = s"Manager | ID: $id | Full Name: $fullName"
 }
