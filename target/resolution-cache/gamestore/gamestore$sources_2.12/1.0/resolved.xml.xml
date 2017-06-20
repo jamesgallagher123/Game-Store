@@ -4,7 +4,7 @@
 		module="gamestore$sources_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170619163750"
+		publication="20170620083226"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
