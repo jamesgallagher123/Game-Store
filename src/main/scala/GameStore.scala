@@ -51,6 +51,7 @@ class GameStore {
     receipt.total
   }
 
+  var pointsLeft: Int = 0
   def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
     itemsListBuffer.foreach(i => if (i.id.equals(id)) {
       customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
@@ -58,6 +59,7 @@ class GameStore {
           for(k <- 0 until quantity) {
             receiptItems += i
             j.points -= i.price.toInt
+            pointsLeft = j.points
             println("Successfully purchased with points")
           }
         }
@@ -65,5 +67,17 @@ class GameStore {
       })
       i.quantity -= quantity
     })
+  }
+
+  def printReceipt(receipt: Receipt, floorStaff: FloorStaff, paidWithPoints: Boolean): Double = {
+    receipt.items.foreach(i =>println(s"ID: ${i.id} | Product: ${i.fullName} | Quantity: ${i.quantity} | Total Price: ${i.price*i.quantity}"))
+    println("You have been served by " + floorStaff.fullName)
+    if (paidWithPoints.equals(true)) {
+      println(s"You have paid with points")
+    }
+    var a: Double = 0
+    receipt.items.foreach(i => a += i.price*i.quantity)
+    println(s"Total Order Price: $a")
+    a
   }
 }
