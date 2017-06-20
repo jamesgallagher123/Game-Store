@@ -1,4 +1,4 @@
-class Games(idc:Int, fnc:String, pricec:Double, quantityc:Int, rdc: String) extends Items{
+class Game(idc:Int, fnc:String, pricec:Double, quantityc:Int, rdc: String) extends Item{
   val id: Int = idc
   val fullName: String = fnc
   val price: Double = pricec
