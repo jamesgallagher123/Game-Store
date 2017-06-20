@@ -5,5 +5,5 @@ abstract class Items {
   val id: Int
   val fullName: String
   val price: Double
-  val quantity: Int
+  var quantity: Int
 }
