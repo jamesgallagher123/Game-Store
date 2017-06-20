@@ -4,7 +4,7 @@ class Receipt(floorStaff: FloorStaff, customer: Customer, itemsList: ListBuffer[
   val floorStaffId: Int = floorStaff.id
   val customerId: Int = customer.id
   val items: ListBuffer[Items] = itemsList
-  val price: Double = calculatePrice(items)
+  val total: Double = calculatePrice(items)
   val date: String = date1
 
   def calculatePrice(items: ListBuffer[Items]): Double = {
