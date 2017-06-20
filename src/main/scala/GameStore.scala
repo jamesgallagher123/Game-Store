@@ -21,18 +21,27 @@ class GameStore {
     profit
   }
 
-  def newReceipt(): Unit = {
+
+  def getDaysSales(date: String): Unit = {
+    receiptListBuffer.foreach(x =>
+      if (x.date == date) {
+        println(x.items)
+      }
+    )
+  }
+
+  def newReceipt: Unit = {
     receiptItems.clear
   }
 
-  def buyGame(gameName: String, quantity: Int): Unit = {
+  def buyItem(itemName: String, q: Int): Unit = {
     itemsListBuffer.foreach(i => {
-      if (i.fullName == gameName) {
-        if (i.quantity >= quantity) {
-          for(j<-0 until quantity) {
+      if (i.fullName == itemName) {
+        if (i.quantity >= q) {
+          for (j <- 0 until q) {
             receiptItems += i
           }
-          i.quantity -= quantity
+          i.quantity -= q
         }
       }
     })
@@ -59,3 +68,4 @@ class GameStore {
     })
   }
 }
+
