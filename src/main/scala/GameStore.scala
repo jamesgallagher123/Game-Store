@@ -21,7 +21,7 @@ class GameStore {
     profit
   }
 
-  def newReceipt: Unit = {
+  def newReceipt(): Unit = {
     receiptItems.clear
   }
 
@@ -38,8 +38,24 @@ class GameStore {
     })
   }
 
-  def checkout: Unit = {
+  def checkout(): Unit = {
     val receipt = new Receipt(receiptItems, "today")
     receipt.total
+  }
+
+  def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
+    itemsListBuffer.foreach(i => if (i.id.equals(id)) {
+      customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
+        if (j.points >= i.price && i.quantity >= quantity) {
+          for(k <- 0 until quantity) {
+            receiptItems += i
+            j.points -= i.price.toInt
+            println("Successfully purchased with points")
+          }
+        }
+        else println("Invalid points to make purchase")
+      })
+      i.quantity -= quantity
+    })
   }
 }
