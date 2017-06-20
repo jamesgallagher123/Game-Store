@@ -1,11 +1,11 @@
 import scala.collection.mutable.ListBuffer
 
-class Receipt(itemsList: ListBuffer[Item], date1: String) {
-  val items: ListBuffer[Item] = itemsList
+class Receipt(itemsList: ListBuffer[Items], date1: String) {
+  val items: ListBuffer[Items] = itemsList
   val date: String = date1
 
   def total: Double = calculatePrice(items)
-  def calculatePrice(items: ListBuffer[Item]): Double = {
+  def calculatePrice(items: ListBuffer[Items]): Double = {
     var total: Double = 0
     items.foreach(x => total += x.price)
     total

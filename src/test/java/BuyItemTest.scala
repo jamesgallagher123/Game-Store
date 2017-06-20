@@ -3,7 +3,7 @@ import org.scalatest.{FlatSpec, Matchers}
 class BuyItemTest extends FlatSpec with Matchers {
   val gameStore = new GameStore
   var receipt = new Receipt(gameStore.receiptItems, "20/06/2017")
-  var game = new Game(1,"Best Game",5.99,5,"20/06/2017")
+  var game = new Games(1,"Best Game",5.99,5,"20/06/2017")
   gameStore.itemsListBuffer += game
 
 

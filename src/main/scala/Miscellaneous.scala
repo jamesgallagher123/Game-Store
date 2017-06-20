@@ -1,4 +1,4 @@
-class Miscellaneous(i: Int, fn: String, p: Double, q: Int, rdc: String) extends Item{
+class Miscellaneous(i: Int, fn: String, p: Double, q: Int, rdc: String) extends Items{
   val id: Int = i
   val fullName: String = fn
   val price: Double = p
