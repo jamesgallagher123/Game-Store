@@ -21,8 +21,8 @@ class payWithPointsTest extends FlatSpec with Matchers {
 
   "buying item worth 100 points when you have 50 points" should "be successful" in {
     gamestore1.payWithPoints(id = 1234, quantity = 1, customerid = 5678)
-    game.quantity shouldBe 5
-    customer.points shouldBe 100
+    game1.quantity shouldBe 5
+    customer1.points shouldBe 50
   }
 
 
