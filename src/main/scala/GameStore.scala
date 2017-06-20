@@ -21,6 +21,15 @@ class GameStore {
     profit
   }
 
+
+  def getDaysSales(date: String): Unit = {
+    receiptListBuffer.foreach(x =>
+      if (x.date == date) {
+        println(x.items)
+      }
+    )
+  }
+
   def newReceipt: Unit = {
     receiptItems.clear
   }
@@ -43,3 +52,4 @@ class GameStore {
     receipt.total
   }
 }
+
