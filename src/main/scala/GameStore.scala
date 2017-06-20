@@ -29,7 +29,6 @@ class GameStore {
       }
     )
   }
-}
 
   def newReceipt: Unit = {
     receiptItems.clear
