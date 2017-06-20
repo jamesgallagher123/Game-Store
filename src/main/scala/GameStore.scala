@@ -2,6 +2,8 @@
   * Created by Administrator on 20/06/2017.
   */
 
+import java.util.Calendar
+
 import scala.collection.mutable._
 
 class GameStore {
@@ -42,14 +44,54 @@ class GameStore {
           }
           i.quantity -= q
         }
+        else println("Not enough items in system")
       }
+      else println("No such item in system")
     })
   }
 
   def checkout(): Unit = {
-    val receipt = new Receipt(receiptItems, "today")
+    val receipt = new Receipt(receiptItems, "toitemDay")
     receipt.total
   }
+
+  var itemDay: Int = 0
+  var itemMonth: Int = 0
+  var itemYear: Int = 0
+
+  def readDate(input: String): Unit = {
+    var date = input.split("/")
+    itemDay = date(0).toInt
+    itemMonth = date(1).toInt
+    itemYear = date(2).toInt
+  }
+
+  var currentDay: Int = 0
+  var currentMonth: Int = 0
+  var currentYear: Int = 0
+
+  def getCurrentDate: Unit = {
+    val now = Calendar.getInstance()
+    currentDay = now.get(Calendar.DAY_OF_MONTH)
+    currentMonth = (now.get(Calendar.MONTH) + 1) //Java is stupid. January is apparently month 0, not month 1
+    currentYear = now.get(Calendar.YEAR)
+  }
+
+  def canPreOrder(input: String): Boolean = {
+    getCurrentDate
+    readDate(input)
+    if(itemYear>=currentYear && itemMonth>=currentMonth && itemDay>currentDay) true
+    else false
+  }
+
+    def preOrder(itemName: String, q: Int): Unit = {
+      itemsListBuffer.foreach(i => {
+        if (i.fullName == itemName) {
+          if(canPreOrder(i.releaseDate)) println("true")
+          else println("false")
+        }
+      })
+    }
 
   var pointsLeft: Int = 0
   def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
@@ -69,13 +111,13 @@ class GameStore {
     })
   }
 
-  def expectedProfit(): Float = {
+  def expectedProfit(): Double = {
     //find every date that has a receipt
     var dates: Set[String] = Set()
     receiptListBuffer.foreach { x =>
       dates += x.date
     }
-    var total: Float = 0
+    var total: Double = 0
     var numberOfDays = dates.size
     //add up total of each day and divide by number of days
     dates.foreach(x => total += getDaysProfit(x))

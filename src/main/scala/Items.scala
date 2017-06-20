@@ -3,4 +3,5 @@ abstract class Items {
   val fullName: String
   val price: Double
   var quantity: Int
+  val releaseDate: String
 }
