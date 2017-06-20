@@ -1,9 +1,9 @@
 /**
   * Created by Profile on 19/06/2017.
   */
-class Hardware extends Items{
-  override val id: Int = _
-  override val fullName: String = _
-  override val price: Double = _
-  override val quantity: Int = _
+class Hardware(idc:Int, fnc:String,pricec:Double,quantityc:Int) extends Items{
+  override val id: Int = idc
+  override val fullName: String = fnc
+  override val price: Double = pricec
+  override val quantity: Int = quantityc
 }
