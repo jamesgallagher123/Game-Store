@@ -1,11 +1,12 @@
 /**
   * Created by Profile on 19/06/2017.
   */
-class Hardware(idc:Int, fnc:String,pricec:Double,quantityc:Int) extends Items{
-  override val id: Int = idc
-  override val fullName: String = fnc
-  override val price: Double = pricec
-  override val quantity: Int = quantityc
+
+class Hardware (i: Int, fn: String, p: Double, q: Int) extends Items{
+  val id: Int = i
+  val fullName: String = fn
+  val price: Double = p
+  val quantity: Int = q
 
   override def toString = s"Hardware | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity"
 }
