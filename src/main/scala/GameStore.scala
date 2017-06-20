@@ -104,10 +104,10 @@ class GameStore {
             pointsLeft = j.points
             println("Successfully purchased with points")
           }
+          i.quantity -= quantity
         }
         else println("Invalid points to make purchase")
       })
-      i.quantity -= quantity
     })
   }
 
