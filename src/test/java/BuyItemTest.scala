@@ -6,6 +6,7 @@ class BuyItemTest extends FlatSpec with Matchers {
   var game = new Games(1,"Best Game",5.99,5,"today")
   gameStore.itemsListBuffer += game
 
+
   "valid game purchase" should "reduce game quantity by 2" in {
     gameStore.buyItem("Best Game", 2)
     game.quantity shouldBe 3
