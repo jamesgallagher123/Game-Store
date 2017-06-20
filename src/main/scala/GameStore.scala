@@ -25,14 +25,14 @@ class GameStore {
     receiptItems.clear
   }
 
-  def buyGame(gameName: String, q: Int): Unit = {
+  def buyItem(itemName: String, q: Int): Unit = {
     itemsListBuffer.foreach(i => {
-      if (i.fullName == gameName) {
+      if (i.fullName == itemName) {
         if (i.quantity >= q) {
           for (j <- 0 until q) {
             receiptItems += i
-            i.quantity -= 1
           }
+          i.quantity -= q
         }
       }
     })
