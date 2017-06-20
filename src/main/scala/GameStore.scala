@@ -93,7 +93,7 @@ class GameStore {
       })
     }
 
-  var pointsLeft: Int = 0
+
   def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
     itemsListBuffer.foreach(i => if (i.id.equals(id)) {
       customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
@@ -101,7 +101,6 @@ class GameStore {
           for(k <- 0 until quantity) {
             receiptItems += i
             j.points -= i.price.toInt
-            pointsLeft = j.points
             println("Successfully purchased with points")
           }
           i.quantity -= quantity
