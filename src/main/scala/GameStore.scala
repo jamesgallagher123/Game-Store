@@ -69,13 +69,13 @@ class GameStore {
     })
   }
 
-  def expectedProfit(): Float = {
+  def expectedProfit(): Double = {
     //find every date that has a receipt
     var dates: Set[String] = Set()
     receiptListBuffer.foreach { x =>
       dates += x.date
     }
-    var total: Float = 0
+    var total: Double = 0
     var numberOfDays = dates.size
     //add up total of each day and divide by number of days
     dates.foreach(x => total += getDaysProfit(x))
