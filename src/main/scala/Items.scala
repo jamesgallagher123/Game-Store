@@ -3,8 +3,10 @@
   */
 abstract class Items {
 
-  val id: Int
-  val fullName: String
-  val price: Double
-  val quantity: Int
+  var id: Int
+  var name: String
+  var price: Double
+  var quantity: Int
+
+  override def toString: String = s"name $name, price $price, quantity $quantity"
 }
