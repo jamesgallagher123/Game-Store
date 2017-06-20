@@ -15,4 +15,9 @@ class BuyItemTest extends FlatSpec with Matchers {
     gameStore.checkout
     receipt.total shouldBe 11.98
   }
+
+  "valid new receipt" should "clear the receipt" in {
+    gameStore.newReceipt
+    gameStore.receiptItems.length shouldBe 0
+  }
 }
