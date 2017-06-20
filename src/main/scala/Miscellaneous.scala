@@ -1,11 +1,9 @@
-/**
-  * Created by Profile on 19/06/2017.
-  */
-class Miscellaneous extends Items{
-  override val id: Int = _
-  override val fullName: String = _
-  override val price: Double = _
-  override val quantity: Int = _
+class Miscellaneous(i: Int, fn: String, p: Double, q: Int) extends Items{
+  val id: Int = i
+  val fullName: String = fn
+  val price: Double = p
+  val quantity: Int = q
 
   override def toString = s"Misc | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity"
+
 }
