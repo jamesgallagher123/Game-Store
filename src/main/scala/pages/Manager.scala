@@ -8,15 +8,15 @@ import scalafx.scene.control._
   * Created by Administrator on 21/06/2017.
   */
 object Manager extends JFXApp {
-  val ButtonTypeOne = new ButtonType("One")
-  val ButtonTypeTwo = new ButtonType("Two")
-  val ButtonTypeThree = new ButtonType("Three")
+  val ButtonTypeOne = new ButtonType("Transactions")
+  val ButtonTypeTwo = new ButtonType("Reports & Receipts")
+  val ButtonTypeThree = new ButtonType("CRUD Operations")
 
   val alert = new Alert(AlertType.Confirmation) {
     initOwner(stage)
-    title = "Confirmation Dialog with Custom Actions"
-    headerText = "Look, a Confirmation Dialog with Custom Actions."
-    contentText = "Choose your option."
+    title = "Manager Homescreen"
+    headerText = "Select Your Option:"
+    contentText = "- Transactions\n\n- Reports & Receipts\n  - Reports\n  - Receipts\n\n- CRUD Operations\n  - Items\n  - Customers\n  - Staff\n"
     // Note that we override here default dialog buttons, OK and Cancel, with new ones.
     buttonTypes = Seq(ButtonTypeOne, ButtonTypeTwo, ButtonTypeThree, ButtonType.Cancel)
   }
@@ -24,9 +24,9 @@ object Manager extends JFXApp {
   val result = alert.showAndWait()
 
   result match {
-    case Some(ButtonTypeOne)   => println("... user chose One")
-    case Some(ButtonTypeTwo)   => println("... user chose Two")
-    case Some(ButtonTypeThree) => println("... user chose Three")
+    case Some(ButtonTypeOne)   => println("... user chose Transactions")
+    case Some(ButtonTypeTwo)   => println("... user chose Reports & Receipts")
+    case Some(ButtonTypeThree) => println("... user chose CRUD Operations")
     case _                     => println("... user chose CANCEL or closed the dialog")
   }
 }
