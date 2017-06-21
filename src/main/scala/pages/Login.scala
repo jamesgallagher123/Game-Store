@@ -8,7 +8,7 @@ import scalafx.scene.control._
 import scalafx.scene.layout.GridPane
 
 // From https://codingonthestaircase.wordpress.com/2015/03/18/scalafx-alerts-and-dialogs/
-object HelloStageDemo extends JFXApp {
+object Login extends JFXApp {
 
   case class Result(username: String, password: String)
 
