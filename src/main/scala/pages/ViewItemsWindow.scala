@@ -12,4 +12,5 @@ class ViewItemsWindow extends Scene {
     style = "-fx-font-size: 25pt"
     fill = Color.Black
   }
+  content = List(viewItemsTitle)
 }
