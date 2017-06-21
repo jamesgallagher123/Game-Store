@@ -5,6 +5,7 @@ import scalafx.application.JFXApp.PrimaryStage
 
 object Main extends JFXApp {
   var loginWindow:LoginWindow = new LoginWindow
+  var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
   var mainStage:PrimaryStage = new PrimaryStage
 
   setWindow("login")
@@ -13,9 +14,11 @@ object Main extends JFXApp {
     window match {
       case "login" => mainStage.scene = loginWindow
         mainStage.width = 400
-        mainStage.height = 250
+        mainStage.height = 350
+      case "floorstaff" => mainStage.scene = floorStaffWindow
+        mainStage.width = 400
+        mainStage.height = 350
       case _ => println("Window not valid")
     }
   }
-
 }
