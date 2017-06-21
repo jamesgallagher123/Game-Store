@@ -2,12 +2,9 @@ package pages
 
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, TextField}
-import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
+import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
-import scalafx.Includes._
-import scalafx.event.ActionEvent
-import scalafx.scene.input.MouseEvent
 
 class LoginWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))

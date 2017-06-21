@@ -6,9 +6,13 @@ import scalafx.application.JFXApp.PrimaryStage
 object Main extends JFXApp {
   var loginWindow:LoginWindow = new LoginWindow
   var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
+  var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
+  var transactionsWindow:TransactionsWindow = new TransactionsWindow
+  var customersWindow:CustomersWindow = new CustomersWindow
+
   var mainStage:PrimaryStage = new PrimaryStage
 
-  setWindow("login")
+  setWindow("floorstaff")
 
   def setWindow(window:String): Unit = {
     window match {
@@ -16,6 +20,15 @@ object Main extends JFXApp {
         mainStage.width = 400
         mainStage.height = 350
       case "floorstaff" => mainStage.scene = floorStaffWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "viewitems" => mainStage.scene = customersWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "customers" => mainStage.scene = customersWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "transactions" => mainStage.scene = customersWindow
         mainStage.width = 400
         mainStage.height = 350
       case _ => println("Window not valid")
