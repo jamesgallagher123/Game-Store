@@ -37,7 +37,8 @@ class GameStore {
     receiptItems.clear
   }
 
-  def buyItem(itemName: String, q: Int): Unit = {
+  def buyItem(itemName: String, q: Int): String = {
+    var message: String = "Item successfully purchased"
     itemsListBuffer.foreach(i => {
       if (i.fullName == itemName) {
         if (i.quantity >= q) {
@@ -46,10 +47,11 @@ class GameStore {
           }
           i.quantity -= q
         }
-        else println("Not enough items in system")
+        else message = "Not enough items in system"
       }
-      else println("No such item in system")
+      else message = "No such item in system"
     })
+    message
   }
 
   def checkout(): Unit = {

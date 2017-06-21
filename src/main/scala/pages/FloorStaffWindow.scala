@@ -31,7 +31,7 @@ class FloorStaffWindow extends Scene {
   }
 
   val customers: Button = new Button("Customers") {
-    relocate(40, 170)
+    relocate(40, 160)
     onMouseClicked =  (e: MouseEvent) => {
       Main.setWindow("customers")
     }
