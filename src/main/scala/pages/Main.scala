@@ -8,14 +8,12 @@ object Main extends JFXApp {
   var mainStage:PrimaryStage = new PrimaryStage
 
   setWindow("login")
-  // val close:Button = new Button("Close"){relocate(x, y))
-  // close.onAction = (e:ActionEvent) => {}
-  // import scalafx.Include._
+
   def setWindow(window:String): Unit = {
     window match {
       case "login" => mainStage.scene = loginWindow
         mainStage.width = 400
-        mainStage.height = 350
+        mainStage.height = 250
       case _ => println("Window not valid")
     }
   }
