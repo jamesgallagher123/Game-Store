@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://C:\Users\Administrator\IdeaProjects\Game-Store\.idea\modules\Documents-game-store.iml" filepath="C:\Users\Administrator\IdeaProjects\Game-Store\.idea\modules\Documents-game-store.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/game-store.iml" filepath="$PROJECT_DIR$/.idea/modules/game-store.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/game-store-build.iml" filepath="$PROJECT_DIR$/.idea/modules/game-store-build.iml" />
     </modules>
