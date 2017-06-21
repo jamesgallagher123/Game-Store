@@ -1,4 +1,4 @@
-name := "GameStore"
+name := "BackEnd.GameStore"
 
 version := "1.0"
 
