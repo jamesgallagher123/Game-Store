@@ -1,4 +1,4 @@
-package JDBCCRUD.GUI
+package pages
 
 import scalafx.scene.Scene
 import scalafx.scene.control.Button
@@ -8,7 +8,7 @@ import scalafx.scene.text.Text
 /**
   * Created by Profile on 21/06/2017.
   */
-class CRUDOperationsWindow extends Scene{
+class ManagerWindow extends Scene{
 
   var test:Text = new Text("Manager Operations"){
     relocate(160,30)
