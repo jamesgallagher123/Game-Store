@@ -8,10 +8,8 @@ object Main extends JFXApp {
   var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
   var mainStage:PrimaryStage = new PrimaryStage
 
-  setWindow("floorstaff")
-  // val close:Button = new Button("Close"){relocate(x, y))
-  // close.onAction = (e:ActionEvent) => {}
-  // import scalafx.Include._
+  setWindow("login")
+
   def setWindow(window:String): Unit = {
     window match {
       case "login" => mainStage.scene = loginWindow
@@ -23,5 +21,4 @@ object Main extends JFXApp {
       case _ => println("Window not valid")
     }
   }
-
 }

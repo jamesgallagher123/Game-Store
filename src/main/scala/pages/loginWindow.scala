@@ -1,18 +1,47 @@
 package pages
 
 import scalafx.scene.Scene
-import scalafx.scene.paint.Color
+import scalafx.scene.control.{Button, TextField}
+import scalafx.scene.paint.{Color, LinearGradient, Stops}
+import scalafx.scene.paint.Color._
 import scalafx.scene.text.Text
+import scalafx.Includes._
+import scalafx.event.ActionEvent
+import scalafx.scene.input.MouseEvent
 
-/**
-  * Created by Administrator on 21/06/2017.
-  */
-class LoginWindow extends Scene{
-  var test:Text = new Text("Login"){
-    relocate(160,30)
-    style = "-fx-font-size: 20pt"
+class LoginWindow extends Scene {
+  fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
+//  updateWindow
+
+  val titleText: Text = new Text("Login") {
+    relocate(140, 40)
+    style = "-fx-font-size: 30pt"
+    fill = Color.Black
   }
-  fill = Color.LightGray
+
+  val userBox = new TextField() {
+    relocate(120, 80)
+    promptText = "UserName"
+  }
+
+  val passBox = new TextField() {
+    relocate(120, 110)
+    promptText = "Password"
+  }
+
+  val loginConfirm: Button = new Button("Log In") {
+    relocate(130, 140)
+//    loginConfirm.onAction = (e: ActionEvent) => {
+//
+//    }
+  }
+
+  val close: Button = new Button("Close") {
+    relocate(210, 140)
+//    close.onMouseClicked = (e: MouseEvent) => {
+//      Main.mainStage.closeWindow
+//    }
+  }
   //ComboBox - Dropdown list new ComboBox][Type](List())
   //var combo:ComboBox[String] = new ComboBox[String]("First option", "Second Option")
   //combo.getSelectionModel().getSelected.value
@@ -20,9 +49,13 @@ class LoginWindow extends Scene{
   //TextArea
   //PromptText
   //ListView
+
   def updateWindow: Unit = {
     // Refresh the page
+    userBox.setText("")
+    passBox.setText("")
   }
+
   Main.setWindow("ManagerWindow")
-  content = List(test)
+  content = List(titleText, userBox, passBox, close, loginConfirm)
 }
