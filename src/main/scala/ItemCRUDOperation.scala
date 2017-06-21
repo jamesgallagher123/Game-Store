@@ -38,26 +38,26 @@ class ItemCRUDOperation {
   }
 
   def updateHardware (hardwareName:String, newData:String): Unit = {
-    hardware.map(item=> if (item.name == hardwareName) {hardware.updated(item.id, item.name = newData)} )
+    hardware.map(item=> if (item.fullName == hardwareName) {hardware.updated(item.id, item.fullName = newData)} )
   }
 
   def updateGames (gamesName:String, newData:String): Unit = {
-    games.map(item=> if (item.name == gamesName) {games.updated(item.id, item.name = newData)} )
+    games.map(item=> if (item.fullName == gamesName) {games.updated(item.id, item.fullName = newData)} )
   }
 
   def updateMicellaneous (miscellaneousName:String, newData:String): Unit = {
-    miscellaneous.map(item=> if (item.name == miscellaneousName) {miscellaneous.updated(item.id, item.name = newData)} )
+    miscellaneous.map(item=> if (item.fullName == miscellaneousName) {miscellaneous.updated(item.id, item.fullName = newData)} )
   }
 
   def deleteHardware (hardwareName:String): Unit = {
-  hardware.map(item => if (hardwareName == item.name) hardware -= item)
+  hardware.map(item => if (hardwareName == item.fullName) hardware -= item)
   }
 
   def deleteGames (gamesName:String): Unit = {
-  games.map(item=> if (gamesName == item.name) games -= item)
+  games.map(item=> if (gamesName == item.fullName) games -= item)
   }
 
   def deleteMiscellaneous (miscellaneousName:String): Unit = {
-  miscellaneous.map(item => if (miscellaneousName == item.name) miscellaneous -= item)
+  miscellaneous.map(item => if (miscellaneousName == item.fullName) miscellaneous -= item)
   }
 }
