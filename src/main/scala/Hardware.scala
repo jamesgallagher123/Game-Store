@@ -1,13 +1,9 @@
-/**
-  * Created by Profile on 19/06/2017.
-  */
-class Hardware (hardwareId:Int, hardwareName:String, hardwarePrice:Double, hardwareQuantity:Int) extends Items{
+class Hardware (i: Int, fn: String, p: Double, q: Int, rdc: String) extends Items{
+  val id: Int = i
+  val fullName: String = fn
+  val price: Double = p
+  var quantity: Int = q
+  val releaseDate: String = rdc
 
-  override var id: Int = hardwareId
-  override var name: String = hardwareName
-  override var price: Double = hardwarePrice
-  override var quantity: Int = hardwareQuantity
-
-  override def toString: String = "Hardware => " + super.toString
-
+  override def toString = s"Hardware | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity"
 }

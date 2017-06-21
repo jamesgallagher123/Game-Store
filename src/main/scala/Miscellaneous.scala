@@ -1,12 +1,10 @@
-/**
-  * Created by Profile on 19/06/2017.
-  */
-class Miscellaneous (miscellaneousId:Int, miscellaneousName:String, miscellaneousPrice:Double, miscellaneousQuantity:Int) extends Items{
-  override var id: Int = miscellaneousId
-  override var name: String = miscellaneousName
-  override var price: Double = miscellaneousPrice
-  override var quantity: Int = miscellaneousQuantity
+class Miscellaneous(i: Int, fn: String, p: Double, q: Int, rdc: String) extends Items{
+  val id: Int = i
+  val fullName: String = fn
+  val price: Double = p
+  var quantity: Int = q
+  val releaseDate: String = rdc
 
-  override def toString: String = "Miscellaneous=> " + super.toString
+  override def toString = s"Misc | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity"
 
 }

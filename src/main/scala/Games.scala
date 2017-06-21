@@ -1,15 +1,9 @@
-/**
-  * Created by Profile on 19/06/2017.
-  */
-class Games (gameId:Int, gameName:String, gamePrice:Double, gameQuantity:Int, gameGenre:String, gameReleaseDate:String) extends Items{
+class Games(idc:Int, fnc:String, pricec:Double, quantityc:Int, rdc: String) extends Items{
+  val id: Int = idc
+  val fullName: String = fnc
+  val price: Double = pricec
+  var quantity: Int = quantityc
+  val releaseDate: String = rdc
 
-override var id:Int = gameId
-override var name: String = gameName
-override var price: Double = gamePrice
-override var quantity:Int = gameQuantity
-var genre:String = gameGenre
-var releaseDate:String = gameReleaseDate
-
-  override def toString: String = "Games => " + super.toString
-
+  override def toString = s"Game | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity | Release Date: $releaseDate"
 }
