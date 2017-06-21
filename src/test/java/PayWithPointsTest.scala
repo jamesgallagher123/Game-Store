@@ -1,6 +1,6 @@
 import org.scalatest._
 
-class payWithPointsTest extends FlatSpec with Matchers {
+class PayWithPointsTest extends FlatSpec with Matchers {
   val gamestore = new GameStore
   val game = new Games(1234, "xbox game", 50, 5, "18/06/2017")
   gamestore.itemsListBuffer += game

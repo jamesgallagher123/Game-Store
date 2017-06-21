@@ -3,7 +3,7 @@ import org.scalatest.{FlatSpec, Matchers}
 /**
   * Created by Administrator on 20/06/2017.
   */
-class getDaysProfitTest extends FlatSpec with Matchers {
+class GetDaysProfitTest extends FlatSpec with Matchers {
   val gameStore = new GameStore
   var game = new Games(1,"Best Game", 10, 1,"today")
   gameStore.itemsListBuffer += game
