@@ -1,3 +1,4 @@
+import BackEnd.{Customer, GameStore, Games}
 import org.scalatest._
 
 class PayWithPointsTest extends FlatSpec with Matchers {

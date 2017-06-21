@@ -1,3 +1,4 @@
+import BackEnd.{FloorStaff, Login, Manager}
 import org.scalatest._
 
 class LoginTest extends FlatSpec with Matchers  {

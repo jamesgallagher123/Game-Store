@@ -1,3 +1,4 @@
+import BackEnd.{GameStore, Games, Receipt}
 import org.scalatest.{FlatSpec, Matchers}
 
 /**

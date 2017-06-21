@@ -1,3 +1,5 @@
+package BackEnd
+
 import scala.collection.mutable.ListBuffer
 
 class Receipt(itemsList: ListBuffer[Items], date1: String) {
