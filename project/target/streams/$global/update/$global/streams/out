@@ -6009,7 +6009,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 2075ms :: artifacts dl 16ms
+[debug] :: resolution report :: resolve 984ms :: artifacts dl 30ms
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT compile produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-compile.xml
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT runtime produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-runtime.xml
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT test produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-test.xml
@@ -6023,5 +6023,5 @@
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT docs produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-docs.xml
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT pom produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-pom.xml
 [debug] 	report for default#game-store-build;0.1-SNAPSHOT scala-tool produced in C:\Users\Administrator\IdeaProjects\Game-Store\project\target\resolution-cache\reports\default-game-store-build-scala-tool.xml
-[debug] 	resolve done (2075ms resolve - 16ms download)
+[debug] 	resolve done (984ms resolve - 30ms download)
 [info] Done updating.
