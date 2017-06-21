@@ -7,6 +7,7 @@ import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color._
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
+import scalafx.Includes._
 
 class FloorStaffWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
@@ -42,7 +43,5 @@ class FloorStaffWindow extends Scene {
       // Refresh the page
     }
 
-
-
-    content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
+  content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
 }
