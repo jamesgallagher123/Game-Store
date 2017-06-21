@@ -22,14 +22,15 @@ object Main extends JFXApp {
       case "floorstaff" => mainStage.scene = floorStaffWindow
         mainStage.width = 400
         mainStage.height = 350
-      case "viewitems" => mainStage.scene = customersWindow
+      case "viewitems" => mainStage.scene = viewItemsWindow
         mainStage.width = 400
         mainStage.height = 350
       case "customers" => mainStage.scene = customersWindow
         mainStage.width = 400
         mainStage.height = 350
-      case "transactions" => mainStage.scene = customersWindow
-
+      case "transactions" => mainStage.scene = transactionsWindow
+        mainStage.width = 400
+        mainStage.height = 350
       case "manager" => mainStage.scene = managerWindow
         mainStage.width = 400
         mainStage.height = 350
