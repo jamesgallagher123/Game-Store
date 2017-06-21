@@ -1,13 +1,11 @@
 package pages
 
-import pages.Main.setWindow
-
-import scalafx.event.ActionEvent
+import scalafx.Includes._
 import scalafx.scene.Scene
 import scalafx.scene.control.Button
 import scalafx.scene.input.MouseEvent
-import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
+import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
 
 class FloorStaffWindow extends Scene {
@@ -21,16 +19,22 @@ class FloorStaffWindow extends Scene {
   val viewItemsButton: Button = new Button("View Items") {
     relocate(40, 80)
     onMouseClicked =  (e: MouseEvent) => {
-     setWindow("viewitems")
+     Main.setWindow("viewitems")
     }
   }
 
   val transactionsButton: Button = new Button("Transactions") {
     relocate(40, 120)
+    onMouseClicked =  (e: MouseEvent) => {
+      Main.setWindow("transactions")
+    }
   }
 
   val customers: Button = new Button("Customers") {
     relocate(40, 170)
+    onMouseClicked =  (e: MouseEvent) => {
+      Main.setWindow("customers")
+    }
   }
 
 
@@ -38,11 +42,6 @@ class FloorStaffWindow extends Scene {
       // Refresh the page
     }
 
-  //move to selected option
-
-        case
-        case transactionsButton.onAction => setWindow("transactions")
-        case customers.onAction => setWindow("customers")
 
 
     content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
