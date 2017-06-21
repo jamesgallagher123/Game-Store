@@ -11,7 +11,6 @@ import scalafx.scene.input.MouseEvent
 class LoginWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
 
-
   val titleText: Text = new Text("Log In") {
     relocate(135, 40)
     style = "-fx-font-size: 30pt"
@@ -53,6 +52,12 @@ class LoginWindow extends Scene {
     relocate(115, 170)
     fill = Color.Red.brighter
     visible = false
+  }
+
+  def updateWindow: Unit = {
+    // Refresh the page
+    passBox.text = ""
+    userBox.text = ""
   }
 
   content = List(titleText, userBox, passBox, loginConfirm, close, failedLogin)

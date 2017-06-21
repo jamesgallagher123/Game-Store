@@ -12,13 +12,14 @@ object Main extends JFXApp {
   var customersWindow:CustomersWindow = new CustomersWindow
   var mainStage:PrimaryStage = new PrimaryStage
 
-  setWindow("login")
+  setWindow("manager")
 
   def setWindow(window:String): Unit = {
     window match {
       case "login" => mainStage.scene = loginWindow
         mainStage.width = 400
         mainStage.height = 350
+        loginWindow.updateWindow
       case "floorstaff" => mainStage.scene = floorStaffWindow
         mainStage.width = 400
         mainStage.height = 350
