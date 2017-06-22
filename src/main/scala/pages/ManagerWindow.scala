@@ -1,13 +1,12 @@
 package pages
 
 import scalafx.scene.Scene
-import scalafx.scene.control.{Button, PasswordField, TextField}
+import scalafx.scene.control.Button
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
 import scalafx.scene.text.Text
 import scalafx.Includes._
 import scalafx.scene.input.MouseEvent
-import pages.LoginWindow
 
 /**
   * Created by Profile on 21/06/2017.
@@ -36,7 +35,7 @@ class ManagerWindow extends Scene{
   }
 
   val repandrecButton: Button = new Button("Reports & Receipts") {
-    relocate(40, 170)
+    relocate(40, 160)
     onMouseClicked =  (e: MouseEvent) => {
       Main.setWindow("repandrec")
     }

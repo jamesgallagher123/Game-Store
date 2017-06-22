@@ -1,7 +1,7 @@
 package pages
 
 import scalafx.scene.Scene
-import scalafx.scene.control.{Button, , TextField}
+import scalafx.scene.control.{Button, PasswordField, TextField}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
 import scalafx.scene.text.Text
@@ -10,8 +10,6 @@ import scalafx.scene.input.MouseEvent
 
 class LoginWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
-
-//  updateWindow
 
   val titleText: Text = new Text("Log In") {
     relocate(135, 40)
@@ -56,14 +54,11 @@ class LoginWindow extends Scene {
     visible = false
   }
 
-
-
-  val updateWindow: Unit = {
+  def updateWindow: Unit = {
     // Refresh the page
-    userBox.text = ""
     passBox.text = ""
+    userBox.text = ""
   }
-
 
   content = List(titleText, userBox, passBox, loginConfirm, close, failedLogin)
 }
