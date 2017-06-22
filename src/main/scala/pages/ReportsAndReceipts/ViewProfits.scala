@@ -1,8 +1,6 @@
 package pages.ReportsAndReceipts
 
-import BackEnd.Games
 import pages.Main
-
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer
 import scalafx.scene.Scene
