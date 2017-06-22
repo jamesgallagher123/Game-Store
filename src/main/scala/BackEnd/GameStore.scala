@@ -52,8 +52,10 @@ class GameStore {
     })
   }
 
-  def checkout(): Unit = {
-    val receipt = new Receipt(receiptItems, "toitemDay")
+  def checkout(): Double = {
+    getCurrentDate
+    val receipt = new Receipt(receiptItems, getCurrentDate)
+    receiptListBuffer += receipt
     receipt.total
   }
 
@@ -72,11 +74,12 @@ class GameStore {
   var currentMonth: Int = 0
   var currentYear: Int = 0
 
-  def getCurrentDate: Unit = {
+  def getCurrentDate: String = {
     val now = Calendar.getInstance()
     currentDay = now.get(Calendar.DAY_OF_MONTH)
     currentMonth = (now.get(Calendar.MONTH) + 1) //Java is stupid. January is apparently month 0, not month 1
     currentYear = now.get(Calendar.YEAR)
+    return s"${currentDay.toString+"/"+currentMonth.toString+"/"+currentYear.toString}"
   }
 
   def canPreOrder(input: String): Boolean = {
@@ -112,7 +115,7 @@ class GameStore {
     })
   }
 
-  def expectedProfit(): Double = {
+  def expectedProfit: Double = {
     //find every date that has a receipt
     var dates: Set[String] = Set()
     receiptListBuffer.foreach { x =>

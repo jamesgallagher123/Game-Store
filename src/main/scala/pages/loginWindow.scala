@@ -10,7 +10,6 @@ import scalafx.scene.input.MouseEvent
 
 class LoginWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
-
   val titleText: Text = new Text("Log In") {
     relocate(135, 40)
     style = "-fx-font-size: 30pt"
