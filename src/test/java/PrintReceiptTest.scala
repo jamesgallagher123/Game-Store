@@ -1,8 +1,6 @@
 import BackEnd._
 import org.scalatest.{FlatSpec, Matchers}
 
-import scala.collection.mutable.ListBuffer
-
 class PrintReceiptTest extends FlatSpec with Matchers {
   val gameStore = new GameStore
   val receiptItems1 = new Games(4564, "xbox game", 14.50, 3, "13/05/2016")
@@ -13,7 +11,7 @@ class PrintReceiptTest extends FlatSpec with Matchers {
   val floorStaff = new FloorStaff(12345, "Fleur Staff")
 
   "check printing valid receipt without points purchase" should "print sucessfully" in {
-    gameStore.printReceipt(receipt, floorStaff, false) shouldBe 293.49
+    gameStore.printReceipt(receipt, floorStaff,  false) shouldBe 293.49
   }
 
   "check printing a valid receipt if user has paid with points" should "print point receipt successful" in {

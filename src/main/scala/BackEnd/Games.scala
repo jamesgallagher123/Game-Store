@@ -7,5 +7,5 @@ class Games(idc:Int, fnc:String, pricec:Double, quantityc:Int, rdc: String) exte
   var quantity: Int = quantityc
   val releaseDate: String = rdc
 
-  override def toString = s"Game | ID: $id | Full Name: $fullName | Price: $price | Quantity in Stock: $quantity | Release Date: $releaseDate"
+  override def toString = s"Game | ID: $id | Name: $fullName | Price: $price"
 }

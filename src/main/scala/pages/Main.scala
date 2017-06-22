@@ -1,9 +1,7 @@
 package pages
 
 import BackEnd.GameStore
-import pages.ReportsAndReceipts.ViewProfits
-
-import pages.CRUD.{CRUDCustomersWindow, CRUDItemsWindow, CRUDStaffWindow, CRUDWindow}
+import pages.ReportsAndReceipts.Reports
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
@@ -18,7 +16,7 @@ object Main extends JFXApp {
   var viewMiscWindow:ViewMiscWindow = new ViewMiscWindow
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
-  var profitWindow:ViewProfits = new ViewProfits
+  var profitWindow:Reports = new Reports
   var mainStage:PrimaryStage = new PrimaryStage
   var crudWindow:CRUDWindow = new CRUDWindow
   var crudItemsWindow:CRUDItemsWindow = new CRUDItemsWindow
@@ -73,6 +71,7 @@ object Main extends JFXApp {
       case "profits" => mainStage.scene = profitWindow
         mainStage.width = 400
         mainStage.height = 350
+        profitWindow.updateWindow
       case _ => println("Window not valid")
     }
   }
