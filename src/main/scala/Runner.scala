@@ -13,7 +13,7 @@ object Runner extends App{
   println(preOrderGame)
   gameStore.itemsListBuffer += game
 //  gameStore.itemsListBuffer += preOrderGame
-  gameStore.buyItem("Best Game", 1)
+//  gameStore.buyItem()
 //
 //  println(game)
 //
