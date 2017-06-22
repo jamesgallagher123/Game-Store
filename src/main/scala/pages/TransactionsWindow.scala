@@ -1,6 +1,6 @@
 package pages
 
-import BackEnd.{GameStore, Hardware}
+import BackEnd.{GameStore, Games, Hardware}
 
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer
@@ -19,6 +19,7 @@ class TransactionsWindow extends Scene {
   var itemMessage: String = ""
   var points: Boolean = false
   val receiptItems1 = new Hardware(4321, "xbox one", 249.99, 1, "01/01/1901")
+  val receiptItems2 = new Games(4321, "xbox game", 249.99, 1, "01/01/2001")
   gamestore.itemsListBuffer += receiptItems1
 
   val transactionsTitle: Text = new Text(s"Make Transaction") {
