@@ -31,6 +31,7 @@ class TransactionsWindow extends Scene {
     style = "-fx-font-size: 25pt"
     fill = Color.Black
   }
+
   val backButton: Button = new Button("Back") {
     relocate(300, 260)
     onMouseClicked = (e: MouseEvent) => {
