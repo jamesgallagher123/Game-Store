@@ -1,6 +1,4 @@
-package pages.CRUD
-
-import pages.Main
+package pages
 
 import scalafx.Includes._
 import scalafx.scene.Scene
