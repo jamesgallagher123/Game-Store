@@ -10,6 +10,7 @@ import scalafx.scene.text.Text
 
 class FloorStaffWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
+
   var floorStaffTitle: Text = new Text(s"Floorstaff Homepage") {
     relocate(40, 40)
     style = "-fx-font-size: 25pt"
@@ -42,7 +43,5 @@ class FloorStaffWindow extends Scene {
       // Refresh the page
     }
 
-
-
-    content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
+  content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
 }

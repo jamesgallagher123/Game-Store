@@ -1,11 +1,12 @@
 package pages
 
-import BackEnd.GameStore
+import BackEnd.{GameStore, Hardware}
 
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer
 import scalafx.scene.Scene
-import scalafx.scene.control.{Button, ComboBox, TextField}
+import scalafx.scene.control.Alert.AlertType
+import scalafx.scene.control._
 import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color.{DarkGray, LightGray}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
@@ -14,8 +15,11 @@ import scalafx.scene.text.Text
 class TransactionsWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   val gamestore = new GameStore
-  var message = ""
   var quantity: Int = 0
+  var itemMessage: String = ""
+  var points: Boolean = false
+  val receiptItems1 = new Hardware(4321, "xbox one", 249.99, 1, "01/01/1901")
+  gamestore.itemsListBuffer += receiptItems1
 
   val transactionsTitle: Text = new Text(s"Make Transaction") {
     relocate(40, 40)
@@ -44,18 +48,42 @@ class TransactionsWindow extends Scene {
     items = ObservableBuffer(1,2,3,4,5,6,7,8,9,10)
   }
 
+  val pointsText: Text = new Text("Paid with points:") {
+    relocate(10, 75)
+  }
+  val payWithPoints = new ComboBox[String]() {
+    relocate(120, 70)
+    items = ObservableBuffer("yes", "no")
+  }
+
+  var dynamicLabelBuy = new Label("") {
+    relocate(120, 230)
+  }
+
   val buyButton: Button = new Button("Buy") {
     relocate(120, 190)
     onMouseClicked = (e: MouseEvent) => {
-      val item: String = itemName.toString()
+      val item: String = itemName.getText
       quantity = quantityPurchased.getValue
-      message = gamestore.buyItem(item, quantity)
+      dynamicLabelBuy.text = gamestore.buyItem(item, quantity)
+      if (payWithPoints.getValue == "yes") points = true
+      else false
     }
   }
 
-  val buyItemMessage: Text = new Text(message) {
-    relocate(120, 240)
+  var dynamicLabelCheckout = new Label("") {
+    relocate(120, 245)
   }
 
-  content = List(transactionsTitle, backButton, itemName, quantityPurchased, buyButton, buyItemMessage, itemText, quantityText)
+  val checkoutButton: Button = new Button("Checkout") {
+    relocate(160, 190)
+    onMouseClicked = (e: MouseEvent) => {
+      val receiptData = gamestore.printReceipt(gamestore.checkout(), "Mr Floorstaff name", points, quantity)
+      if (gamestore.checkout().items.isEmpty) dynamicLabelCheckout.text = "Cannot checkout no items purchased"
+      if(gamestore.checkout().items.size < quantity) dynamicLabelCheckout.text
+      else if (gamestore.checkout().items.nonEmpty) new Alert(AlertType.Information, receiptData).showAndWait()
+    }
+  }
+
+  content = List(transactionsTitle, backButton, itemName, quantityPurchased, buyButton, itemText, quantityText, dynamicLabelBuy, checkoutButton, dynamicLabelCheckout, payWithPoints, pointsText)
 }

@@ -3,11 +3,13 @@ package JDBCCRUD.GUI
 /**
   * Created by Profile on 21/06/2017.
   */
+import pages.ManagerWindow
+
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 
 object Main extends JFXApp {
-  var crudWindow:CRUDOperationsWindow = new CRUDOperationsWindow
+  var crudWindow:ManagerWindow = new ManagerWindow
   var transactionsWindow: TransactionsWindow = new TransactionsWindow
   var reportsAndReceiptsWindow: ReportsAndReceiptsWindow = new ReportsAndReceiptsWindow
 
