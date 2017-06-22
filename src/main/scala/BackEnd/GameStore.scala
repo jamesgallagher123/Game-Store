@@ -38,24 +38,40 @@ class GameStore {
   }
 
 
-  def buyItem(itemName: String, q: Int): String = {
+  def buyItem(itemName: String, q: Int, point: Boolean, customerId: Int): String = {
     var message: String = ""
-    if (itemsListBuffer.isEmpty) message = "No such item in system"
-    itemsListBuffer.foreach(i => {
-      if (i.fullName == itemName) {
-        if (q != 0) {
-          if (i.quantity >= q) {
-            for (j <- 0 until q) {
-              receiptItems += i
-            }
-            i.quantity -= q
-            message = "Item successfully purchased"
-          } else message = "Not enough items in system"
-        } else message = "No amount selected"
-      } else message = "No such item in system"
-    })
+    itemsListBuffer.foreach(i =>
+      if (i.fullName == itemName) {println("item match")
+        customerListBuffer.foreach(j => if (j.id.equals(customerId)) {println("customer match")
+          if (q != 0) {println("quantity more than 0")
+            if (i.quantity >= q) { println("quantity allowed")
+              if (point.equals(true) && j.points >= i.price) { println("points purchase allowed")
+                for (k <- 0 until q) {
+                  println("item added")
+                  receiptItems += i
+                  j.points -= i.price.toInt
+                }
+                i.quantity -= q
+                message = s"Item successfully purchased with points you now have ${j.points} left"
+              } else if (point.equals(false)) {
+                for (k <- 0 until q) {
+                  println("item added")
+                  receiptItems += i
+                  j.points -= i.price.toInt
+                }
+                i.quantity -= q
+                message = "Item successfully purchased"
+              }
+              else message = "Not enough points"
+            } else message = "Not enough items in system"
+          } else message = "No such customer"
+        } else message = "No such item")})
     message
   }
+
+
+
+
 
   def checkout(): Receipt = {
     val receipt = new Receipt(receiptItems, "toitemDay")
@@ -100,23 +116,6 @@ class GameStore {
       })
     }
 
-  def payWithPoints(id: Int, quantity: Int, customerid: Int): String = {
-    var message = ""
-    itemsListBuffer.foreach(i => if (i.id.equals(id)) {
-      customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
-        if (j.points >= i.price && i.quantity >= quantity) {
-          for(k <- 0 until quantity) {
-            receiptItems += i
-            j.points -= i.price.toInt
-            message = "Successfully purchased with points"
-          }
-          i.quantity -= quantity
-        }
-        message = "Invalid points to make purchase"
-      })
-    })
-    message
-  }
 
   def expectedProfit(): Double = {
     //find every date that has a receipt

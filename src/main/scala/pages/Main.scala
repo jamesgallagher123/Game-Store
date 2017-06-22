@@ -1,5 +1,7 @@
 package pages
 
+import BackEnd.GameStore
+
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 
@@ -11,6 +13,7 @@ object Main extends JFXApp {
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
   var mainStage:PrimaryStage = new PrimaryStage
+  var gameStore:GameStore = new GameStore
 
   setWindow("floorstaff")
 
