@@ -12,4 +12,6 @@ class Receipt(itemsList: ListBuffer[Items], date1: String) {
     items.foreach(x => total += x.price)
     total
   }
+
+  override def toString: String = s"$date | $items"
 }

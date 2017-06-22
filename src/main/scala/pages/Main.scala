@@ -1,5 +1,8 @@
 package pages
 
+import BackEnd.GameStore
+import pages.ReportsAndReceipts.ViewProfits
+
 import pages.CRUD.{CRUDCustomersWindow, CRUDItemsWindow, CRUDStaffWindow, CRUDWindow}
 
 import scalafx.application.JFXApp
@@ -15,19 +18,21 @@ object Main extends JFXApp {
   var viewMiscWindow:ViewMiscWindow = new ViewMiscWindow
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
+  var profitWindow:ViewProfits = new ViewProfits
   var mainStage:PrimaryStage = new PrimaryStage
   var crudWindow:CRUDWindow = new CRUDWindow
   var crudItemsWindow:CRUDItemsWindow = new CRUDItemsWindow
   var crudCustomersWindow:CRUDCustomersWindow = new CRUDCustomersWindow
   var crudStaffWindow:CRUDStaffWindow = new CRUDStaffWindow
-
-  setWindow("manager")
+  val gameStore = new GameStore
+  setWindow("floorstaff")
 
   def setWindow(window:String): Unit = {
     window match {
       case "login" => mainStage.scene = loginWindow
         mainStage.width = 400
         mainStage.height = 350
+        mainStage.title = "Log In"
         loginWindow.updateWindow
       case "floorstaff" => mainStage.scene = floorStaffWindow
         mainStage.width = 400
@@ -63,6 +68,9 @@ object Main extends JFXApp {
         mainStage.width = 400
         mainStage.height = 350
       case "crudStaff" => mainStage.scene = crudStaffWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "profits" => mainStage.scene = profitWindow
         mainStage.width = 400
         mainStage.height = 350
       case _ => println("Window not valid")

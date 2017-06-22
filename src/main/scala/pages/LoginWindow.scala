@@ -54,6 +54,8 @@ class LoginWindow extends Scene {
     visible = false
   }
 
+
+
   def updateWindow: Unit = {
     // Refresh the page
     passBox.text = ""

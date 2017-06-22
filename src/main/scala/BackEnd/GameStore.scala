@@ -37,23 +37,30 @@ class GameStore {
     receiptItems.clear
   }
 
-  def buyItem(itemName: String, q: Int): Unit = {
+
+  def buyItem(itemName: String, q: Int): String = {
+    var message: String = ""
+    if (itemsListBuffer.isEmpty) message = "No such item in system"
     itemsListBuffer.foreach(i => {
       if (i.fullName == itemName) {
-        if (i.quantity >= q) {
-          for (j <- 0 until q) {
-            receiptItems += i
-          }
-          i.quantity -= q
-        }
-        else println("Not enough items in system")
-      }
-      else println("No such item in system")
+        if (q != 0) {
+          if (i.quantity >= q) {
+            for (j <- 0 until q) {
+              receiptItems += i
+            }
+            i.quantity -= q
+            message = "Item successfully purchased"
+          } else message = "Not enough items in system"
+        } else message = "No amount selected"
+      } else message = "No such item in system"
     })
+    message
   }
 
-  def checkout(): Unit = {
-    val receipt = new Receipt(receiptItems, "toitemDay")
+  def checkout(): Double = {
+    getCurrentDate
+    val receipt = new Receipt(receiptItems, getCurrentDate)
+    receiptListBuffer += receipt
     receipt.total
   }
 
@@ -72,11 +79,12 @@ class GameStore {
   var currentMonth: Int = 0
   var currentYear: Int = 0
 
-  def getCurrentDate: Unit = {
+  def getCurrentDate: String = {
     val now = Calendar.getInstance()
     currentDay = now.get(Calendar.DAY_OF_MONTH)
     currentMonth = (now.get(Calendar.MONTH) + 1) //Java is stupid. January is apparently month 0, not month 1
     currentYear = now.get(Calendar.YEAR)
+    return s"${currentDay.toString+"/"+currentMonth.toString+"/"+currentYear.toString}"
   }
 
   def canPreOrder(input: String): Boolean = {
@@ -95,24 +103,25 @@ class GameStore {
       })
     }
 
-
-  def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
+  def payWithPoints(id: Int, quantity: Int, customerid: Int): String = {
+    var message = ""
     itemsListBuffer.foreach(i => if (i.id.equals(id)) {
       customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
         if (j.points >= i.price && i.quantity >= quantity) {
           for(k <- 0 until quantity) {
             receiptItems += i
             j.points -= i.price.toInt
-            println("Successfully purchased with points")
+            message = "Successfully purchased with points"
           }
           i.quantity -= quantity
         }
-        else println("Invalid points to make purchase")
+        message = "Invalid points to make purchase"
       })
     })
+    message
   }
 
-  def expectedProfit(): Double = {
+  def expectedProfit: Double = {
     //find every date that has a receipt
     var dates: Set[String] = Set()
     receiptListBuffer.foreach { x =>
@@ -126,19 +135,22 @@ class GameStore {
   }
 
 
-  def printReceipt(receipt: Receipt, floorStaff: FloorStaff, paidWithPoints: Boolean): Double = {
-    var a: Double = 0
-    receipt.items.foreach(i =>println(s"ID: ${i.id} | Product: ${i.fullName} | Quantity: ${i.quantity} | Total Price: ${i.price*i.quantity}"))
-    receipt.items.foreach(i => a += i.price * i.quantity)
-    println("You have been served by " + floorStaff.fullName)
+  def printReceipt(receipt: Receipt, floorstaffName: String, paidWithPoints: Boolean, quantity: Int): String = {
+    var a: String = ""
+    var c = ""
+    if (paidWithPoints.equals(false)) {
+      receipt.items.foreach(i => a += s"ID: ${i.id} | Product: ${i.fullName} | Quantity: $quantity | Total Price: ${i.price * quantity}")
+      println(a)
+      val b: String = "\nYou have been served by " + floorstaffName + "\n"
+      c = a + b
+    }
     if (paidWithPoints.equals(true)) {
-      println(s"You have paid with points")
-      println(s"You have saved: £$a")
+      receipt.items.foreach(i => a += s"ID: ${i.id} | Product: ${i.fullName} | Quantity: $quantity | Total Price: ${i.price * quantity}")
+      println(a)
+      val b: String = "\nYou have been served by " + floorstaffName +  "\nYou have paid using points"
+      c = a + b
     }
-    else {
-      println(s"Total Order Price: £$a")
-    }
-    a
+    c
   }
 }
 
