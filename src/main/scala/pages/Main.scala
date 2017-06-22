@@ -15,7 +15,7 @@ object Main extends JFXApp {
   var profitWindow:Reports = new Reports
   var mainStage:PrimaryStage = new PrimaryStage
   val gameStore = new GameStore
-  setWindow("manager")
+  setWindow("login")
 
   def setWindow(window:String): Unit = {
     window match {
@@ -24,6 +24,7 @@ object Main extends JFXApp {
         mainStage.height = 350
         mainStage.title = "Log In"
         loginWindow.updateWindow
+        mainStage.title = "Log In"
       case "floorstaff" => mainStage.scene = floorStaffWindow
         mainStage.width = 400
         mainStage.height = 350

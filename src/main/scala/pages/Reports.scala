@@ -1,5 +1,8 @@
 package pages
 
+package pages.ReportsAndReceipts
+
+
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer
 import scalafx.scene.Scene
