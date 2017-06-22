@@ -72,6 +72,7 @@ class GameStore {
     val receipt = new Receipt(receiptItems, getCurrentDate)
     receiptListBuffer += receipt
     receipt
+
   }
 
   var itemDay: Int = 0

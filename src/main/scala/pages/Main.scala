@@ -13,17 +13,18 @@ object Main extends JFXApp {
   var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
-  var mainStage:PrimaryStage = new PrimaryStage
   var profitWindow:ViewProfits = new ViewProfits
+  var mainStage:PrimaryStage = new PrimaryStage
   val gameStore = new GameStore
 
-  setWindow("floorstaff")
+  setWindow("login")
 
   def setWindow(window:String): Unit = {
     window match {
       case "login" => mainStage.scene = loginWindow
         mainStage.width = 400
         mainStage.height = 350
+        mainStage.title = "Log In"
         loginWindow.updateWindow
         mainStage.title = "Log In"
       case "floorstaff" => mainStage.scene = floorStaffWindow
