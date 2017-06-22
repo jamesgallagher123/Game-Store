@@ -1,16 +1,12 @@
 package pages
 
-import scalafx.Includes._
 import scalafx.scene.Scene
-import scalafx.scene.control.Button
-import scalafx.scene.input.MouseEvent
 import scalafx.scene.control.Button
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
 import scalafx.scene.text.Text
 import scalafx.Includes._
 import scalafx.scene.input.MouseEvent
-import pages.LoginWindow
 
 /**
   * Created by Profile on 21/06/2017.
