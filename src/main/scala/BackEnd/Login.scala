@@ -1,3 +1,5 @@
+package BackEnd
+
 import java.util.Scanner
 
 class Login(floorStaff: FloorStaff, manager: Manager) {
@@ -11,7 +13,7 @@ class Login(floorStaff: FloorStaff, manager: Manager) {
     val sc = new Scanner(System.in)
     var username: String = sc.next()
     var password: String = sc.next()
-    println("~Login~")
+    println("~BackEnd.Login~")
     println("Username: " + username)
     println("Password: " + password)
     loginScreenLogic(username, password)

@@ -1,3 +1,5 @@
+package BackEnd
+
 class Games(idc:Int, fnc:String, pricec:Double, quantityc:Int, rdc: String) extends Items{
   val id: Int = idc
   val fullName: String = fnc

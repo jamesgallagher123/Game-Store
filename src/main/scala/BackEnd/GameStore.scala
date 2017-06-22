@@ -1,3 +1,5 @@
+package BackEnd
+
 /**
   * Created by Administrator on 20/06/2017.
   */
@@ -93,7 +95,7 @@ class GameStore {
       })
     }
 
-  var pointsLeft: Int = 0
+
   def payWithPoints(id: Int, quantity: Int, customerid: Int) = {
     itemsListBuffer.foreach(i => if (i.id.equals(id)) {
       customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
@@ -101,13 +103,12 @@ class GameStore {
           for(k <- 0 until quantity) {
             receiptItems += i
             j.points -= i.price.toInt
-            pointsLeft = j.points
             println("Successfully purchased with points")
           }
+          i.quantity -= quantity
         }
         else println("Invalid points to make purchase")
       })
-      i.quantity -= quantity
     })
   }
 
@@ -126,14 +127,17 @@ class GameStore {
 
 
   def printReceipt(receipt: Receipt, floorStaff: FloorStaff, paidWithPoints: Boolean): Double = {
+    var a: Double = 0
     receipt.items.foreach(i =>println(s"ID: ${i.id} | Product: ${i.fullName} | Quantity: ${i.quantity} | Total Price: ${i.price*i.quantity}"))
+    receipt.items.foreach(i => a += i.price * i.quantity)
     println("You have been served by " + floorStaff.fullName)
     if (paidWithPoints.equals(true)) {
       println(s"You have paid with points")
+      println(s"You have saved: £$a")
     }
-    var a: Double = 0
-    receipt.items.foreach(i => a += i.price*i.quantity)
-    println(s"Total Order Price: $a")
+    else {
+      println(s"Total Order Price: £$a")
+    }
     a
   }
 }
