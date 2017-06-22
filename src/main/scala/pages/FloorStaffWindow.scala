@@ -7,10 +7,10 @@ import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color._
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
-import scalafx.Includes._
 
 class FloorStaffWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
+
   var floorStaffTitle: Text = new Text(s"Floorstaff Homepage") {
     relocate(40, 40)
     style = "-fx-font-size: 25pt"
@@ -32,7 +32,7 @@ class FloorStaffWindow extends Scene {
   }
 
   val customers: Button = new Button("Customers") {
-    relocate(40, 170)
+    relocate(40, 160)
     onMouseClicked =  (e: MouseEvent) => {
       Main.setWindow("customers")
     }

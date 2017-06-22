@@ -12,7 +12,7 @@ object Main extends JFXApp {
   var customersWindow:CustomersWindow = new CustomersWindow
   var mainStage:PrimaryStage = new PrimaryStage
 
-  setWindow("manager")
+  setWindow("floorstaff")
 
   def setWindow(window:String): Unit = {
     window match {
