@@ -1,7 +1,6 @@
 package pages
 
 import BackEnd.GameStore
-import pages.ReportsAndReceipts.ViewProfits
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
@@ -13,10 +12,10 @@ object Main extends JFXApp {
   var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
-  var profitWindow:ViewProfits = new ViewProfits
+  var profitWindow:Reports = new Reports
   var mainStage:PrimaryStage = new PrimaryStage
   val gameStore = new GameStore
-  setWindow("profits")
+  setWindow("manager")
 
   def setWindow(window:String): Unit = {
     window match {
@@ -43,6 +42,7 @@ object Main extends JFXApp {
       case "profits" => mainStage.scene = profitWindow
         mainStage.width = 400
         mainStage.height = 350
+        profitWindow.updateWindow
       case _ => println("Window not valid")
     }
   }

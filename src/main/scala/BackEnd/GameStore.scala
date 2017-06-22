@@ -57,11 +57,11 @@ class GameStore {
     message
   }
 
-  def checkout(): Double = {
+  def checkout(): Receipt = {
     getCurrentDate
     val receipt = new Receipt(receiptItems, getCurrentDate)
     receiptListBuffer += receipt
-    receipt.total
+    receipt
   }
 
   var itemDay: Int = 0

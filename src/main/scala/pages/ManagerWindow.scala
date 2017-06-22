@@ -35,12 +35,12 @@ class ManagerWindow extends Scene{
   val repandrecButton: Button = new Button("Reports & Receipts") {
     relocate(40, 170)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("repandrec")
+      Main.setWindow("profits")
     }
   }
 
   val logoutButton: Button = new Button("Log Out") {
-    relocate(250, 260)
+    relocate(260, 260)
     onMouseClicked = (e: MouseEvent) => {
       Main.setWindow("login")
     }

@@ -27,6 +27,7 @@ class TransactionsWindow extends Scene {
     style = "-fx-font-size: 25pt"
     fill = Color.Black
   }
+
   val backButton: Button = new Button("Back") {
     relocate(300, 260)
     onMouseClicked = (e: MouseEvent) => {
@@ -66,7 +67,7 @@ class TransactionsWindow extends Scene {
     onMouseClicked = (e: MouseEvent) => {
       val item: String = itemName.getText
       quantity = quantityPurchased.getValue
-      dynamicLabelBuy.text = gamestore.buyItem(item, quantity)
+      dynamicLabelBuy.text = Main.gameStore.buyItem(item, quantity)
       if (payWithPoints.getValue == "yes") points = true
       else false
     }
@@ -79,10 +80,10 @@ class TransactionsWindow extends Scene {
   val checkoutButton: Button = new Button("Checkout") {
     relocate(160, 190)
     onMouseClicked = (e: MouseEvent) => {
-      val receiptData = gamestore.printReceipt(gamestore.checkout(), "Mr Floorstaff name", points, quantity)
-      if (gamestore.checkout().items.isEmpty) dynamicLabelCheckout.text = "Cannot checkout no items purchased"
-      if(gamestore.checkout().items.size < quantity) dynamicLabelCheckout.text
-      else if (gamestore.checkout().items.nonEmpty) new Alert(AlertType.Information, receiptData).showAndWait()
+      val receiptData = Main.gameStore.printReceipt(Main.gameStore.checkout(), "Mr Floorstaff name", points, quantity)
+      if (Main.gameStore.checkout().items.isEmpty) dynamicLabelCheckout.text = "Cannot checkout no items purchased"
+      if(Main.gameStore.checkout().items.size < quantity) dynamicLabelCheckout.text
+      else if (Main.gameStore.checkout().items.nonEmpty) new Alert(AlertType.Information, receiptData).showAndWait()
     }
   }
 
