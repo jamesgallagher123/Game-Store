@@ -1,7 +1,7 @@
 package pages
 
 import scalafx.scene.Scene
-import scalafx.scene.control.{Button, , TextField}
+import scalafx.scene.control.{Button, PasswordField, TextField}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.paint.Color._
 import scalafx.scene.text.Text
@@ -58,7 +58,7 @@ class LoginWindow extends Scene {
 
 
 
-  val updateWindow: Unit = {
+  def updateWindow: Unit = {
     // Refresh the page
     userBox.text = ""
     passBox.text = ""
