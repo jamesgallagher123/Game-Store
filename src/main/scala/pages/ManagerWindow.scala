@@ -7,12 +7,10 @@ import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color._
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
+import scalafx.Includes._
+import scalafx.scene.input.MouseEvent
 
-/**
-  * Created by Profile on 21/06/2017.
-  */
 class ManagerWindow extends Scene{
-
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   var managerTitle: Text = new Text(s"Manager Homepage") {
     relocate(40, 40)
@@ -41,7 +39,7 @@ class ManagerWindow extends Scene{
     }
   }
 
-  val backButton: Button = new Button("Log Out") {
+  val logoutButton: Button = new Button("Log Out") {
     relocate(250, 260)
     onMouseClicked = (e: MouseEvent) => {
       Main.setWindow("login")
@@ -52,6 +50,6 @@ class ManagerWindow extends Scene{
     // Refresh the page
   }
 
-  content = List(managerTitle, crudButton, transactionsButton, repandrecButton, backButton)
+  content = List(managerTitle, crudButton, transactionsButton, repandrecButton, logoutButton)
 
 }

@@ -41,13 +41,12 @@ class GameStore {
   def buyItem(itemName: String, q: Int, point: Boolean, customerId: Int): String = {
     var message: String = ""
     itemsListBuffer.foreach(i =>
-      if (i.fullName == itemName) {println("item match")
-        customerListBuffer.foreach(j => if (j.id.equals(customerId)) {println("customer match")
-          if (q != 0) {println("quantity more than 0")
-            if (i.quantity >= q) { println("quantity allowed")
-              if (point.equals(true) && j.points >= i.price) { println("points purchase allowed")
+      if (i.fullName == itemName) {
+        customerListBuffer.foreach(j => if (j.id.equals(customerId)) {
+          if (q != 0) {
+            if (i.quantity >= q) {
+              if (point.equals(true) && j.points >= i.price) {
                 for (k <- 0 until q) {
-                  println("item added")
                   receiptItems += i
                   j.points -= i.price.toInt
                 }
@@ -55,7 +54,6 @@ class GameStore {
                 message = s"Item successfully purchased with points you now have ${j.points} left"
               } else if (point.equals(false)) {
                 for (k <- 0 until q) {
-                  println("item added")
                   receiptItems += i
                   j.points -= i.price.toInt
                 }
@@ -69,13 +67,11 @@ class GameStore {
     message
   }
 
-
-
-
-
   def checkout(): Receipt = {
-    val receipt = new Receipt(receiptItems, "toitemDay")
-     receipt
+    getCurrentDate
+    val receipt = new Receipt(receiptItems, getCurrentDate)
+    receiptListBuffer += receipt
+    receipt
   }
 
   var itemDay: Int = 0
@@ -93,11 +89,12 @@ class GameStore {
   var currentMonth: Int = 0
   var currentYear: Int = 0
 
-  def getCurrentDate: Unit = {
+  def getCurrentDate: String = {
     val now = Calendar.getInstance()
     currentDay = now.get(Calendar.DAY_OF_MONTH)
     currentMonth = (now.get(Calendar.MONTH) + 1) //Java is stupid. January is apparently month 0, not month 1
     currentYear = now.get(Calendar.YEAR)
+    return s"${currentDay.toString+"/"+currentMonth.toString+"/"+currentYear.toString}"
   }
 
   def canPreOrder(input: String): Boolean = {
@@ -117,7 +114,7 @@ class GameStore {
     }
 
 
-  def expectedProfit(): Double = {
+  def expectedProfit: Double = {
     //find every date that has a receipt
     var dates: Set[String] = Set()
     receiptListBuffer.foreach { x =>

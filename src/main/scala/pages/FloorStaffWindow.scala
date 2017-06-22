@@ -38,10 +38,17 @@ class FloorStaffWindow extends Scene {
     }
   }
 
+  val logoutButton: Button = new Button("Log Out") {
+    relocate(250, 260)
+    onMouseClicked = (e: MouseEvent) => {
+      Main.setWindow("login")
+    }
+  }
+
 
     def updateWindow: Unit = {
       // Refresh the page
     }
 
-  content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers)
+  content = List(floorStaffTitle, viewItemsButton, transactionsButton, customers, logoutButton)
 }
