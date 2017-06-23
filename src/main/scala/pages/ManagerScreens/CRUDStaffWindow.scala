@@ -31,7 +31,7 @@ class CRUDStaffWindow extends Scene {
   val readButton: Button = new Button("Read Staff") {
     relocate(40, 120)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("")
+      Main.setWindow("viewStaffManager")
     }
   }
 
