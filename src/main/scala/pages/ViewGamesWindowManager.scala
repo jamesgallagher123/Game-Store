@@ -1,20 +1,20 @@
-package FrontEnd.GUI
+package pages
 
 import BackEnd.Games
 
 import scala.collection.mutable.ListBuffer
+import scalafx.Includes._
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, ListView}
 import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color.{DarkGray, LightGray}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
-import scalafx.Includes._
 
 /**
   * Created by Administrator on 22/06/2017.
   */
-class ViewGamesWindow extends Scene{
+class ViewGamesWindowManager extends Scene{
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   var viewItemsTitle: Text = new Text(s"View Games") {
     relocate(40, 40)

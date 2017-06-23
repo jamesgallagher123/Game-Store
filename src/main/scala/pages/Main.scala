@@ -12,9 +12,11 @@ object Main extends JFXApp {
   var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
   var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
   var viewGamesWindow:ViewGamesWindow = new ViewGamesWindow
+  var viewGamesWindowManager:ViewGamesWindowManager = new ViewGamesWindowManager
   var viewHardwareWindow:ViewHardwareWindow = new ViewHardwareWindow
   var viewMiscWindow:ViewMiscWindow = new ViewMiscWindow
   var transactionsWindow:TransactionsWindow = new TransactionsWindow
+  var transactionsWindowManager:TransactionsWindowManager = new TransactionsWindowManager
   var customersWindow:CustomersWindow = new CustomersWindow
   var profitWindow:Reports = new Reports
   var mainStage:PrimaryStage = new PrimaryStage
@@ -23,7 +25,10 @@ object Main extends JFXApp {
   var crudCustomersWindow:CRUDCustomersWindow = new CRUDCustomersWindow
   var crudStaffWindow:CRUDStaffWindow = new CRUDStaffWindow
   val gameStore = new GameStore
-  setWindow("floorstaff")
+  setWindow("crud")
+
+
+
 
   def setWindow(window:String): Unit = {
     window match {
@@ -51,6 +56,9 @@ object Main extends JFXApp {
         mainStage.width = 400
         mainStage.height = 350
       case "transactions" => mainStage.scene = transactionsWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "transactionsmanager" => mainStage.scene = transactionsWindowManager
         mainStage.width = 400
         mainStage.height = 350
       case "manager" => mainStage.scene = managerWindow

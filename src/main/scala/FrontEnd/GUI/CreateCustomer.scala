@@ -1,6 +1,7 @@
-package pages
+package FrontEnd.GUI
 
-import BackEnd.PersonCRUDOperation
+
+import ObjectCRUD.PersonCRUDOperation
 
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, TextField}
@@ -46,11 +47,6 @@ class CreateCustomer extends Scene {
 
       var test1 = new PersonCRUDOperation()
 
-      if(test1.createCustomer(getFullName,getEmailAddress,getPoints.toInt)=="Success"){
-        println("Customer Created")
-      }else{
-        failedLogin.setVisible(true)
-      }
 
 
     }

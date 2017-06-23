@@ -30,7 +30,7 @@ class ManagerWindow extends Scene{
   val transactionsButton: Button = new Button("Transactions") {
     relocate(40, 120)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("transactions")
+      Main.setWindow("transactionsmanager")
     }
   }
 

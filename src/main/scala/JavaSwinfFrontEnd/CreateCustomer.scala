@@ -8,6 +8,8 @@ import java.awt._
 import java.awt.event._
 import javax.swing.border._
 
+import ObjectCRUD.PersonCRUDOperation
+
 class CreateCustomer extends JFrame{
 
   val btnCreateCutomer = new JButton("Login")
@@ -114,16 +116,7 @@ class CreateCustomer extends JFrame{
 
         var test1 = new PersonCRUDOperation()
 
-        if(test1.createCustomer(txtFullName.getText(), txtEmailAddress.getText(), txtPoints.getText.toInt)=="Success"){
 
-          JOptionPane.showMessageDialog(null, "Customer created")
-        }else{
-          JOptionPane.showMessageDialog(null, "Wrong Details")
-          txtFullName.setText("")
-          txtEmailAddress.setText("")
-          txtPoints.setText("")
-          txtFullName.requestFocus
-        }
       }
     })
   }

@@ -8,7 +8,7 @@ class PrintReceiptTest extends FlatSpec with Matchers {
   gameStore.itemsListBuffer += receiptItems1
   gameStore.itemsListBuffer += receiptItems2
   val receipt = new Receipt(gameStore.itemsListBuffer, "20/06/2017")
-  val floorStaff = new FloorStaff(12345, "Fleur Staff")
+  val floorStaff = new FloorStaff(12345, "Fleur Staff", "email@email.com")
 
   "check printing valid receipt without points purchase" should "print sucessfully" in {
 //    gameStore.printReceipt(receipt, floorStaff,  false) shouldBe 293.49

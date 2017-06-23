@@ -3,8 +3,6 @@ package FrontEnd
 /**
   * Created by Profile on 22/06/2017.
   */
-import BackEnd.Games
-import pages.Main
 
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer

@@ -1,6 +1,6 @@
-package pages
+package FrontEnd.GUI
 
-package pages.ReportsAndReceipts
+
 
 
 import scalafx.Includes._

@@ -1,4 +1,6 @@
-package pages
+package FrontEnd
+
+import ObjectCRUD.PersonCRUDOperation
 
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, TextField}

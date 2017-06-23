@@ -9,7 +9,8 @@ import java.awt._
 import java.awt.event._
 import javax.swing.border._
 
-import BackEnd.PersonCRUDOperation
+import ObjectCRUD.PersonCRUDOperation
+
 
 class Login extends JFrame{
 
@@ -91,25 +92,25 @@ class Login extends JFrame{
 
         var test1 = new PersonCRUDOperation()
 
-        if(test1.verify(txtUsername.getText(), txtPassword.getText())=="Manager"){
-
-          JOptionPane.showMessageDialog(null, "Login Successful. Welcome To The Manager Operations: " + txtUsername.getText())
-
-          val displayManagerGUI = new Manager()
-          displayManagerGUI.createManagerGUI()
-          dispose()
-        }else if(test1.verify(txtUsername.getText(), txtPassword.getText())=="Floor Staff"){
-
-          JOptionPane.showMessageDialog(null, "Login Successful. Welcome To The Floor Staff Operations: " + txtUsername.getText())
-          val displayManagerGUI = new FloorStaff()
-          displayManagerGUI.createFloorStaffGUI()
-          dispose()
-        }else{
-          JOptionPane.showMessageDialog(null, "Wrong Password / Username")
-          txtUsername.setText("")
-          txtPassword.setText("")
-          txtUsername.requestFocus
-        }
+//        if(test1.verify(txtUsername.getText(), txtPassword.getText())=="Manager"){
+//
+//          JOptionPane.showMessageDialog(null, "Login Successful. Welcome To The Manager Operations: " + txtUsername.getText())
+//
+//          val displayManagerGUI = new Manager()
+//          displayManagerGUI.createManagerGUI()
+//          dispose()
+//        }else if(test1.verify(txtUsername.getText(), txtPassword.getText())=="Floor Staff"){
+//
+//          JOptionPane.showMessageDialog(null, "Login Successful. Welcome To The Floor Staff Operations: " + txtUsername.getText())
+//          val displayManagerGUI = new FloorStaff()
+//          displayManagerGUI.createFloorStaffGUI()
+//          dispose()
+//        }else{
+//          JOptionPane.showMessageDialog(null, "Wrong Password / Username")
+//          txtUsername.setText("")
+//          txtPassword.setText("")
+//          txtUsername.requestFocus
+//        }
       }
     })
   }

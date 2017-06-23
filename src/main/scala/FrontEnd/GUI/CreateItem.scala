@@ -1,10 +1,10 @@
-package FrontEnd
+package FrontEnd.GUI
 
 /**
   * Created by Profile on 22/06/2017.
   */
-import BackEnd.PersonCRUDOperation
-import pages.Main
+
+import ObjectCRUD.PersonCRUDOperation
 
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, TextField}
@@ -56,11 +56,11 @@ class CreateItem extends Scene {
 
       var test1 = new PersonCRUDOperation()
 
-      if(test1.createItem(getItemType,getItemName,getQuantity.toInt,getPrice.toDouble)=="Success"){
-        println("Item Created")
-      }else{
-        failedLogin.setVisible(true)
-      }
+//      if(test1.createItem(getItemType,getItemName,getQuantity.toInt,getPrice.toDouble)=="Success"){
+      //        println("Item Created")
+      //      }else{
+      //        failedLogin.setVisible(true)
+      //      }
 
 
     }

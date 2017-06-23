@@ -29,7 +29,7 @@ class CRUDItemsWindow extends Scene {
   val readButton: Button = new Button("Read Items") {
     relocate(40, 120)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("transactions")
+      Main.setWindow("viewitems")
     }
   }
 

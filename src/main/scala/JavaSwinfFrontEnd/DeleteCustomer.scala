@@ -8,6 +8,8 @@ import java.awt._
 import java.awt.event._
 import javax.swing.border._
 
+import ObjectCRUD.PersonCRUDOperation
+
 class DeleteCustomer extends JFrame{
 
   val btnDeleteCustomer = new JButton("Delete Customer")

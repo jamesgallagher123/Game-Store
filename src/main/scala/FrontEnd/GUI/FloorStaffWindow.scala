@@ -1,4 +1,4 @@
-package pages
+package FrontEnd.GUI
 
 import scalafx.Includes._
 import scalafx.scene.Scene

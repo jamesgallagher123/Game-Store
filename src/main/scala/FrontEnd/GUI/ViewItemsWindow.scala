@@ -1,4 +1,4 @@
-package pages
+package FrontEnd.GUI
 
 import scalafx.scene.Scene
 import scalafx.scene.control.Button
