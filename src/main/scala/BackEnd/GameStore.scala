@@ -1,8 +1,6 @@
 package BackEnd
 
-/**
-  * Created by Administrator on 20/06/2017.
-  */
+
 
 import java.util.Calendar
 
@@ -132,7 +130,7 @@ class GameStore {
     var a: String = ""
     var c = ""
     if (paidWithPoints.equals(false)) {
-      receipt.items.foreach(i => a += s"ID: ${i.id} | Product: ${i.fullName} | Quantity: $quantity | Total Price: ${i.price * quantity}")
+      receipt.items.foreach(i => a += s"Product ID: ${i.id} | Product: ${i.fullName} | Total Price: ${i.price * quantity}")
       println(a)
       val b: String = "\nYou have been served by " + floorstaffName + "\n"
       c = a + b

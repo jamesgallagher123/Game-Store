@@ -9,7 +9,7 @@ class BuyItemTest extends FlatSpec with Matchers {
 
 //
 //  "valid game purchase" should "reduce game quantity by 2" in {
-//    gameStore.buyItem("Best Game", 2)
+//    gameStore.buyItem("Best Game", 2,  false, 123)
 //    game.quantity shouldBe 3
 //  }
 
