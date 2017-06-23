@@ -6,4 +6,5 @@ package BackEnd
 abstract class Person {
   val id: Int
   val fullName: String
+  val emailAddress: String
 }
