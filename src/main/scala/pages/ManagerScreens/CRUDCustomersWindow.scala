@@ -28,10 +28,10 @@ class CRUDCustomersWindow extends Scene{
     }
   }
 
-  val readButton: Button = new Button("Read Items") {
+  val readButton: Button = new Button("Read Customers") {
     relocate(40, 120)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("")
+      Main.setWindow("viewCustomersManager")
     }
   }
 
