@@ -1,4 +1,6 @@
-package pages
+package pages.ManagerScreens
+
+import pages.Main
 
 import scalafx.Includes._
 import scalafx.scene.Scene
@@ -11,41 +13,48 @@ import scalafx.scene.text.Text
 /**
   * Created by Administrator on 22/06/2017.
   */
-class CRUDWindow extends Scene{
+class CRUDCustomersWindow extends Scene{
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
-  var crudTitle: Text = new Text(s"CRUD") {
+  var crudCustomersTitle: Text = new Text(s"CRUD Customers") {
     relocate(40, 40)
     style = "-fx-font-size: 25pt"
     fill = Color.Black
   }
 
-  val crudItemsButton: Button = new Button("CRUD Items") {
+  val createButton: Button = new Button("Create Customers") {
     relocate(40, 80)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("crudItems")
+      Main.setWindow("")
     }
   }
 
-  val crudCustomersButton: Button = new Button("CRUD Customers") {
+  val readButton: Button = new Button("Read Items") {
     relocate(40, 120)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("crudCustomers")
+      Main.setWindow("")
     }
   }
 
-  val crudStaffButton: Button = new Button("CRUD Staff") {
+  val editButton: Button = new Button("Edit Customers") {
     relocate(40, 160)
     onMouseClicked =  (e: MouseEvent) => {
-      Main.setWindow("crudStaff")
+      Main.setWindow("")
+    }
+  }
+
+  val deleteButton: Button = new Button("Delete Customers") {
+    relocate(40, 200)
+    onMouseClicked =  (e: MouseEvent) => {
+      Main.setWindow("")
     }
   }
 
   val backButton: Button = new Button("Back") {
     relocate(250, 260)
     onMouseClicked = (e: MouseEvent) => {
-      Main.setWindow("manager")
+      Main.setWindow("crud")
     }
   }
 
-  content = List(crudTitle, crudItemsButton, crudCustomersButton, crudStaffButton, backButton)
+  content = List(crudCustomersTitle, createButton, readButton, editButton, deleteButton, backButton)
 }

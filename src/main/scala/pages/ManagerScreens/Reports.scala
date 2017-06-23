@@ -1,7 +1,6 @@
-package pages
+package pages.ManagerScreens
 
-package pages.ReportsAndReceipts
-
+import pages.Main
 
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer

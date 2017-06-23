@@ -2,7 +2,7 @@ package FrontEnd.GUI
 
 import BackEnd.GameStore
 import FrontEnd.{CreateEmployee, CreateItem, ManagerWindow, ViewItemsWindow}
-import pages.pages.ReportsAndReceipts.Reports
+import pages.ManagerScreens.Reports
 import pages.{TransactionsWindow, ViewGamesWindow, ViewHardwareWindow, ViewMiscWindow}
 
 import scalafx.application.JFXApp

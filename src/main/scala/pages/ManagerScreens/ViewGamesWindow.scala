@@ -1,15 +1,16 @@
-package pages
+package pages.ManagerScreens
 
 import BackEnd.Games
+import pages.Main
 
 import scala.collection.mutable.ListBuffer
+import scalafx.Includes._
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, ListView}
 import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color.{DarkGray, LightGray}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
-import scalafx.Includes._
 
 /**
   * Created by Administrator on 22/06/2017.
@@ -25,7 +26,7 @@ class ViewGamesWindow extends Scene{
   val backButton: Button = new Button("Back") {
     relocate(250, 260)
     onMouseClicked = (e: MouseEvent) => {
-      Main.setWindow("viewItemsManager")
+      Main.setWindow("viewitems")
     }
   }
 

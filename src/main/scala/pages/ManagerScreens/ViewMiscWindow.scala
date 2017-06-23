@@ -1,6 +1,7 @@
-package pages
+package pages.ManagerScreens
 
-import BackEnd.Games
+import BackEnd.Miscellaneous
+import pages.Main
 
 import scala.collection.mutable.ListBuffer
 import scalafx.Includes._
@@ -14,7 +15,7 @@ import scalafx.scene.text.Text
 /**
   * Created by Administrator on 22/06/2017.
   */
-class ViewGamesWindowManager extends Scene{
+class ViewMiscWindow extends Scene{
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   var viewItemsTitle: Text = new Text(s"View Games") {
     relocate(40, 40)
@@ -25,25 +26,16 @@ class ViewGamesWindowManager extends Scene{
   val backButton: Button = new Button("Back") {
     relocate(250, 260)
     onMouseClicked = (e: MouseEvent) => {
-      Main.setWindow("viewitems")
+      Main.setWindow("viewItemsManager")
     }
   }
 
-  // test data
-  val games: ListBuffer[Games] = new ListBuffer()
-  games += new Games(1, "Best Game", 5.99, 5, "20/06/2017")
-  games += new Games(2, "Bad Game", 6.99, 5, "22/06/2017")
+  val misc: ListBuffer[Miscellaneous] = new ListBuffer[Miscellaneous]
 
-  val gameList:ListView[Games] = new ListView[Games](games.toList){
+  val miscList:ListView[Miscellaneous] = new ListView[Miscellaneous](misc.toList){
     relocate(0,0)
     prefWidth = 1000
   }
 
-  gameList.onMouseClicked = (e:MouseEvent) => {
-    println(gameList.selectionModel().getSelectedItem)
-  }
-
-  content = List(viewItemsTitle, gameList, backButton)
+  content = List(viewItemsTitle, miscList, backButton)
 }
-
-// gameList.items = new ListView[type](ListBuffer().toList).getItems
