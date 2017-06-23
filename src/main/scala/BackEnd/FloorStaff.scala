@@ -1,8 +1,8 @@
 package BackEnd
 
-class FloorStaff (i: Int, fn: String) extends Person {
+class FloorStaff (i: Int, fn: String, email:String) extends Person {
   val id: Int = i
   val fullName: String = fn
-
-  override def toString = s"Floor Staff | ID: $id | Full Name: $fullName"
+  val emailAddress: String = email
+  override def toString = s"Floor Staff | ID: $id | Full Name: $fullName | Email Address: $email"
 }

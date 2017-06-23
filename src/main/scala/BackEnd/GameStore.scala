@@ -1,7 +1,5 @@
 package BackEnd
 
-
-
 import java.util.Calendar
 
 import scala.collection.mutable._
@@ -102,15 +100,32 @@ class GameStore {
     else false
   }
 
-    def preOrder(itemName: String, q: Int): Unit = {
-      itemsListBuffer.foreach(i => {
-        if (i.fullName == itemName) {
-          if(canPreOrder(i.releaseDate)) println("true")
-          else println("false")
-        }
-      })
-    }
+  def preOrder(itemName: String, q: Int): Unit = {
+    itemsListBuffer.foreach(i => {
+      if (i.fullName == itemName) {
+        if(canPreOrder(i.releaseDate)) println("true")
+        else println("false")
+      }
+    })
+  }
 
+  def payWithPoints(id: Int, quantity: Int, customerid: Int): String = {
+    var message = ""
+    itemsListBuffer.foreach(i => if (i.id.equals(id)) {
+      customerListBuffer.foreach(j => if (j.id.equals(customerid)) {
+        if (j.points >= i.price && i.quantity >= quantity) {
+          for(k <- 0 until quantity) {
+            receiptItems += i
+            j.points -= i.price.toInt
+            message = "Successfully purchased with points"
+          }
+          i.quantity -= quantity
+        }
+        message = "Invalid points to make purchase"
+      })
+    })
+    message
+  }
 
   def expectedProfit: Double = {
     //find every date that has a receipt

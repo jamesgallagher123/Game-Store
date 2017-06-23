@@ -15,6 +15,9 @@ class PersonCRUDOperation {
   var floorStaff:ListBuffer[FloorStaff] = new ListBuffer[FloorStaff]()
   var manager:ListBuffer[Manager] = new ListBuffer[Manager]()
 
+
+
+
   def createCustomer(insertCustomer:Customer): Unit ={
     customer += insertCustomer;
   }
@@ -26,6 +29,9 @@ class PersonCRUDOperation {
   def createManager(insertManager:Manager): Unit ={
     manager += insertManager;
   }
+
+
+
 
   def deleteCustomer(customerName: String, customerEmail: String): Unit ={
     customer.map(item=>if(item.fullName == customerName && item.emailAddress == customerEmail){customer.remove(item.id)})
@@ -41,6 +47,9 @@ class PersonCRUDOperation {
 
   }
 
+
+
+
   def updateCustomer(cFullName: String, cEmail: String, cUpdateData:String)={
     customer.foreach(item=>if(item.fullName == cFullName && item.emailAddress== cEmail){customer.updated(item.id,item.fullName=cUpdateData)})
   }
@@ -53,6 +62,8 @@ class PersonCRUDOperation {
   def updateManager(mFullName: String, mEmail: String, mUpdateData:String)={
     manager.foreach(item=>if(item.fullName == mFullName && item.emailAddress== mEmail){manager.updated(item.id,item.fullName=mUpdateData)})
   }
+
+
 
 
   def displayCustomers(): Unit ={
