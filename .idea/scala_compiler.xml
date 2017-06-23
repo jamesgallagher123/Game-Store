@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="SBT 1" modules="game-store" />
+    <profile name="SBT 1" modules="Desktop-game-store,game-store" />
   </component>
 </project>

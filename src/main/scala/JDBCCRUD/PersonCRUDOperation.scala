@@ -6,7 +6,7 @@ package JDBCCRUD
 import java.sql
 
 import scala.collection.mutable.ListBuffer
-import java.sql.{Connection, DriverManager}
+import java.sql.{SQLException, _}
 
 /**
   * Created by Profile on 20/06/2017.
@@ -40,42 +40,102 @@ class PersonCRUDOperation {
 
   }
 
-  def createUser(userType: String, username: String, password: String): Unit ={
 
-    createDatabaseConenction()
+  def createUser(userType:String, username:String, password:String): Unit ={
 
-    val statement = connection.createStatement()
-    val resultSet = statement.executeUpdate(s"INSERT INTO registeredusers (Type,Username,Password) VALUES('$userType','$username','$password')")
+    try{
+      createDatabaseConenction()
 
-    println(s"User: $username has been registered successfully")
+      var preparedStatement = connection.prepareStatement(s"INSERT INTO registeredusers (Type,Username,Password) VALUES('$userType','$username','$password')")
 
-    connection.close()
+      preparedStatement.executeUpdate()
+
+      println(s"$username has been registered successfully")
+
+    }catch{
+      case e: SQLException => e.printStackTrace()
+    }finally {
+      connection.close()
+    }
+
   }
+
+
+
+
+
 
   def updateUser(findUser:String,newUserType: String, newUsername: String, newPassword: String): Unit={
 
-    createDatabaseConenction()
+    try{
+      createDatabaseConenction()
 
-    val statement = connection.createStatement()
-    val resultSet = statement.executeQuery(s"SELECT Username FROM registeredusers WHERE( Username ='$findUser')")
+      //var preparedStatement = connection.prepareStatement(s"UPDATE registeredusers SET type='$newUserType', username='$newUsername', password='$newPassword' WHERE username = '$findUser'")
 
-    while(resultSet.next()){
+      //preparedStatement.executeUpdate()
 
-      //var getUserType = resultSet.getString("Type")
-      var getUser = resultSet.getString("Username")
-      var getPass = resultSet.getString("Password")
+      var preparedStatement = connection.prepareStatement(s"SELECT * FROM registeredusers WHERE username='$findUser'")
 
-      //.updateString("Type", getUserType.toUpperCase)
-      resultSet.updateString("Username", getUser.toUpperCase)
-      resultSet.updateString("Password", getPass.toUpperCase)
+      var resultSet = preparedStatement.executeQuery()
 
-      resultSet.rowUpdated()
+      if(resultSet.next()){
 
+        var getUserType:String = resultSet.getString(2)
+        var getUsername:String = resultSet.getString(3)
+        var getUserPassword:String = resultSet.getString(4)
+
+        //resultSet.updateString(2, s"$newUserType")
+
+        //resultSet.updateRow()
+
+        println(s"$getUserType, $getUsername, $getUserPassword")
+
+
+      }else{
+        println("Record does not exist. You can proceed")
+      }
+
+      //println(s"$findUser has been updated successfully")
+
+    }catch{
+      case e: SQLException => e.printStackTrace()
+    }finally {
+      connection.close()
     }
 
-    println(s"User: $findUser has been registered successfully")
+  }
 
-    connection.close()
+
+  def verifyLogin(username:String,password: String): Unit= {
+
+    var result = ""
+
+    try{
+      createDatabaseConenction()
+
+      var preparedStatement = connection.prepareStatement(s"SELECT * FROM registeredusers WHERE username='$username', password='$password'")
+
+      var resultSet = preparedStatement.executeQuery()
+
+      if(resultSet.next()){
+
+        var getUserType:String = resultSet.getString(2)
+        var getUsername:String = resultSet.getString(3)
+        var getUserPassword:String = resultSet.getString(4)
+
+        println("User Found")
+
+      }else{
+        println("Record does not exist.")
+      }
+
+      //println(s"$findUser has been updated successfully")
+
+    }catch{
+      case e: SQLException => e.printStackTrace()
+    }finally {
+      connection.close()
+    }
 
   }
 

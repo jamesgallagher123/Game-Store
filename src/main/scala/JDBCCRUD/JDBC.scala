@@ -10,10 +10,11 @@ object JDBC {
 
     var personCRUD = new PersonCRUDOperation()
 
-    personCRUD.createUser("Admin", "New Admin", "newadmin")
+    //personCRUD.createUser("Admin", "New Admin", "newadmin")
 
+    personCRUD.updateUser("Staff","New User Type","Admin1","Admin1pass")
+    personCRUD.verifyLogin("abc","abc")
 
-    personCRUD.updateUser("Manager","New User Type","Admin1","Admin1pass")
   }
 
 }
