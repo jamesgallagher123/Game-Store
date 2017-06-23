@@ -1,6 +1,7 @@
-package pages
+package pages.ManagerScreens
 
 import BackEnd.{Customer, GameStore, Games, Hardware}
+import pages.Main
 
 import scalafx.Includes._
 import scalafx.collections.ObservableBuffer
@@ -12,7 +13,7 @@ import scalafx.scene.paint.Color.{DarkGray, LightGray}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
 
-class TransactionsWindowManager extends Scene {
+class TransactionsWindow extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   val gamestore = new GameStore
   var quantity: Int = 0
