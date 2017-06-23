@@ -28,10 +28,13 @@ object Main extends JFXApp {
   var crudCustomersWindow:ManagerScreens.CRUDCustomersWindow = new ManagerScreens.CRUDCustomersWindow
   var crudStaffWindow:ManagerScreens.CRUDStaffWindow = new ManagerScreens.CRUDStaffWindow
   val gameStore = new GameStore
-  setWindow("crud")
 
+  val floorStaffCreateCustomer:FloorStaffCreateCustomer = new FloorStaffCreateCustomer
+  val floorStaffReadCustomer:FloorStaffReadCustomer = new FloorStaffReadCustomer
+  val floorStaffEditCustomer:FloorStaffEditCustomer = new FloorStaffEditCustomer
+  val floorStaffDeleteCustomer:FloorStaffDeleteCustomer = new FloorStaffDeleteCustomer
 
-
+  setWindow("floorstaff")
 
   def setWindow(window:String): Unit = {
     window match {
@@ -41,6 +44,18 @@ object Main extends JFXApp {
         mainStage.title = "Log In"
         loginWindow.updateWindow
       case "floorstaff" => mainStage.scene = floorStaffWindow
+        mainStage.width = 400
+        mainStage.height = 350
+      case "floorStaffCreateCustomer" => mainStage.scene = floorStaffCreateCustomer
+        mainStage.width = 400
+        mainStage.height = 350
+      case "floorStaffReadCustomer" => mainStage.scene = floorStaffReadCustomer
+        mainStage.width = 400
+        mainStage.height = 350
+      case "floorStaffEditCustomer" => mainStage.scene = floorStaffEditCustomer
+        mainStage.width = 400
+        mainStage.height = 350
+      case "floorStaffDeleteCustomer" => mainStage.scene = floorStaffDeleteCustomer
         mainStage.width = 400
         mainStage.height = 350
       case "viewitems" => mainStage.scene = viewItemsWindow
