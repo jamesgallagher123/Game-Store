@@ -13,5 +13,5 @@ class Receipt(itemsList: ListBuffer[Items], date1: String) {
     total
   }
 
-  override def toString: String = s"$date | $items"
+  override def toString: String = s"$date\n$items"
 }

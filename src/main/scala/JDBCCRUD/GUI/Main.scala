@@ -3,6 +3,8 @@ package JDBCCRUD.GUI
 /**
   * Created by Profile on 21/06/2017.
   */
+import pages.ManagerWindow
+
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 
@@ -11,8 +13,12 @@ object Main extends JFXApp {
   var managerWindow:ManagerWindow = new ManagerWindow
   var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
   var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
-  var transactionsWindow:TransactionsWindow = new TransactionsWindow
   var customersWindow:CustomersWindow = new CustomersWindow
+  var crudWindow:ManagerWindow = new ManagerWindow
+  var transactionsWindow: TransactionsWindow = new TransactionsWindow
+  var reportsAndReceiptsWindow: ReportsAndReceiptsWindow = new ReportsAndReceiptsWindow
+
+
   var mainStage:PrimaryStage = new PrimaryStage
 
   setWindow("login")
