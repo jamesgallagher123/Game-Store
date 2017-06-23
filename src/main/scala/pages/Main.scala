@@ -14,6 +14,7 @@ object Main extends JFXApp {
   var viewItemsWindowManager:ManagerScreens.ViewItemsWindow = new ManagerScreens.ViewItemsWindow
   var viewHardwareWindowManager:ManagerScreens.ViewHardwareWindow = new ManagerScreens.ViewHardwareWindow
   var viewMiscWindowManager:ManagerScreens.ViewMiscWindow = new ManagerScreens.ViewMiscWindow
+  var viewCustomersWindow:ManagerScreens.ViewCustomersWindow = new ManagerScreens.ViewCustomersWindow
   var floorStaffWindow:FloorStaffWindow = new FloorStaffWindow
   var viewItemsWindow:ViewItemsWindow = new ViewItemsWindow
   var viewGamesWindow:ViewGamesWindow = new ViewGamesWindow
@@ -52,7 +53,7 @@ object Main extends JFXApp {
   gameStore.customerListBuffer += customer2
   gameStore.customerListBuffer += customer3
 
-  setWindow("login")
+  setWindow("viewCustomersManager")
 
 
   def setWindow(window:String): Unit = {
@@ -131,6 +132,9 @@ object Main extends JFXApp {
         mainStage.width = 400
         mainStage.height = 350
         profitWindow.updateWindow
+      case "viewCustomersManager" => mainStage.scene = viewCustomersWindow
+        mainStage.width = 400
+        mainStage.height = 350
       case _ => println("Window not valid")
     }
   }
