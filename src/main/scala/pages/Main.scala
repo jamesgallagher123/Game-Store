@@ -1,7 +1,7 @@
 package pages
 
-import BackEnd.GameStore
-import pages.ManagerScreens.Reports
+import BackEnd.{Customer, GameStore, Games, Hardware}
+import pages.ManagerScreens.{CRUDCustomersWindow, CRUDItemsWindow, CRUDStaffWindow, CRUDWindow}
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
@@ -23,18 +23,35 @@ object Main extends JFXApp {
   var customersWindow:CustomersWindow = new CustomersWindow
   var profitWindow:ManagerScreens.Reports = new ManagerScreens.Reports
   var mainStage:PrimaryStage = new PrimaryStage
-  var crudWindow:ManagerScreens.CRUDWindow = new ManagerScreens.CRUDWindow
-  var crudItemsWindow:ManagerScreens.CRUDItemsWindow = new ManagerScreens.CRUDItemsWindow
-  var crudCustomersWindow:ManagerScreens.CRUDCustomersWindow = new ManagerScreens.CRUDCustomersWindow
-  var crudStaffWindow:ManagerScreens.CRUDStaffWindow = new ManagerScreens.CRUDStaffWindow
   val gameStore = new GameStore
-
   val floorStaffCreateCustomer:FloorStaffCreateCustomer = new FloorStaffCreateCustomer
   val floorStaffReadCustomer:FloorStaffReadCustomer = new FloorStaffReadCustomer
   val floorStaffEditCustomer:FloorStaffEditCustomer = new FloorStaffEditCustomer
   val floorStaffDeleteCustomer:FloorStaffDeleteCustomer = new FloorStaffDeleteCustomer
+  var crudWindowManager:ManagerScreens.CRUDWindow = new ManagerScreens.CRUDWindow
+  var crudItemsWindowManager:ManagerScreens.CRUDItemsWindow = new ManagerScreens.CRUDItemsWindow
+  var crudCustomersWindowManager:ManagerScreens.CRUDCustomersWindow = new ManagerScreens.CRUDCustomersWindow
+  var crudStaffWindowManager:ManagerScreens.CRUDStaffWindow = new ManagerScreens.CRUDStaffWindow
 
-  setWindow("floorstaff")
+  var crudWindow:CRUDWindow = new CRUDWindow
+  var crudItemsWindow:CRUDItemsWindow = new CRUDItemsWindow
+  var crudCustomersWindow:CRUDCustomersWindow = new CRUDCustomersWindow
+  var crudStaffWindow:CRUDStaffWindow = new CRUDStaffWindow
+
+
+  val receiptItems1 = new Hardware(4321, "xbox one", 249.99, 1, "01/06/2015")
+  val receiptItems2 = new Games(4321, "xbox game", 39.99, 5, "17/01/2017")
+  val receiptItems3 = new Games(4321, "second-hand game", 16.99, 14, "05/04/2014")
+  gameStore.itemsListBuffer += receiptItems1
+  gameStore.itemsListBuffer += receiptItems2
+  val customer1 = new Customer(123, "Custo Mer 1", "cust.omer@hotmail.com", 1000)
+  val customer2 = new Customer(123, "Custo Mer 2", "cust.omer@hotmail.com", 500)
+  val customer3 = new Customer(123, "Custo Mer 3","cust.omer@hotmail.com", 0)
+
+  gameStore.customerListBuffer += customer1
+
+  setWindow("login")
+
 
   def setWindow(window:String): Unit = {
     window match {
@@ -46,6 +63,7 @@ object Main extends JFXApp {
       case "floorstaff" => mainStage.scene = floorStaffWindow
         mainStage.width = 400
         mainStage.height = 350
+        mainStage.title = "Floor staff"
       case "floorStaffCreateCustomer" => mainStage.scene = floorStaffCreateCustomer
         mainStage.width = 400
         mainStage.height = 350
@@ -92,6 +110,7 @@ object Main extends JFXApp {
         mainStage.width = 400
         mainStage.height = 350
       case "manager" => mainStage.scene = managerWindow
+        mainStage.title = "Manager"
         mainStage.width = 400
         mainStage.height = 350
       case "crud" => mainStage.scene = crudWindow
