@@ -1,10 +1,10 @@
-package FrontEnd
+package FrontEnd.GUI
 
 /**
   * Created by Profile on 22/06/2017.
   */
-import BackEnd.PersonCRUDOperation
-import pages.Main
+
+import ObjectCRUD.PersonCRUDOperation
 
 import scalafx.scene.Scene
 import scalafx.scene.control._
@@ -50,11 +50,11 @@ class CreateEmployee extends Scene {
 
       var test1 = new PersonCRUDOperation()
 
-      if(test1.createEmployee(getEmployeeType,getFullName,getEmailAddress)=="Success"){
-        println("Employee Created")
-      }else{
-        failedLogin.setVisible(true)
-      }
+//      if(test1.createEmployee(getEmployeeType,getFullName,getEmailAddress)=="Success"){
+//        println("Employee Created")
+//      }else{
+//        failedLogin.setVisible(true)
+//      }
 
 
       println(s"Employee Type: $getEmployeeType | Full Name: $getFullName | Email Address: $getEmailAddress")

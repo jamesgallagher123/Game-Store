@@ -1,8 +1,8 @@
-package pages
+package FrontEnd
 
 import BackEnd.GameStore
+import FrontEnd.GUI.{CustomersWindow, TransactionsWindow}
 import FrontEnd._
-import JDBCCRUD.GUI.{CustomersWindow, TransactionsWindow}
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage

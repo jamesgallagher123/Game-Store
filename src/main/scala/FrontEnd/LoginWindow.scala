@@ -3,8 +3,8 @@ package FrontEnd
 /**
   * Created by Profile on 22/06/2017.
   */
-import BackEnd.PersonCRUDOperation
-import pages.Main
+
+import ObjectCRUD.PersonCRUDOperation
 
 import scalafx.scene.Scene
 import scalafx.scene.control.{Button, PasswordField, TextField}
@@ -42,13 +42,7 @@ class LoginWindow extends Scene {
 
       var test1 = new PersonCRUDOperation()
 
-      if(test1.verify(userInput.toString, passInput.toString)=="Manager"){
-        Main.setWindow("manager")
-      }else if(test1.verify(userInput.toString, passInput.toString)=="Floor Staff"){
-        Main.setWindow("floorstaff")
-      }else{
-        failedLogin.setVisible(true)
-      }
+
 
     }
   }

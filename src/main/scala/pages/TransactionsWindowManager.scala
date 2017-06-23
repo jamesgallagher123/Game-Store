@@ -1,4 +1,4 @@
-package FrontEnd.GUI
+package pages
 
 import BackEnd.{Customer, GameStore, Games, Hardware}
 
@@ -12,7 +12,7 @@ import scalafx.scene.paint.Color.{DarkGray, LightGray}
 import scalafx.scene.paint.{Color, LinearGradient, Stops}
 import scalafx.scene.text.Text
 
-class TransactionsWindow extends Scene {
+class TransactionsWindowManager extends Scene {
   fill = new LinearGradient(endX = 0, stops = Stops(LightGray.brighter, DarkGray))
   val gamestore = new GameStore
   var quantity: Int = 0
@@ -22,7 +22,7 @@ class TransactionsWindow extends Scene {
   val receiptItems2 = new Games(4321, "xbox game", 39.99, 5, "01/01/2001")
   gamestore.itemsListBuffer += receiptItems1
   gamestore.itemsListBuffer += receiptItems2
-  val customer = new Customer(123, "Custo Mer", "cus@hotmail.com", 1000)
+  val customer = new Customer(123, "Custo Mer", "email@email.com", 1000)
   gamestore.customerListBuffer += customer
 
 
@@ -35,14 +35,13 @@ class TransactionsWindow extends Scene {
   val backButton: Button = new Button("Back") {
     relocate(300, 260)
     onMouseClicked = (e: MouseEvent) => {
-      Main.setWindow("floorstaff")
+      Main.setWindow("manager")
     }
   }
 
   val itemText: Text = new Text("Item Name:") {
     relocate(10, 115)
   }
-
   val itemName = new TextField() {
     relocate(120, 110)
   }

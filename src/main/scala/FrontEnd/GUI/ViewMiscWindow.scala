@@ -1,4 +1,4 @@
-package pages
+package FrontEnd.GUI
 
 import BackEnd.Miscellaneous
 

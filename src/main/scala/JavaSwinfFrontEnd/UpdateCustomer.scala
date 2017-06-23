@@ -8,7 +8,8 @@ import java.awt._
 import java.awt.event._
 import javax.swing.border._
 
-import BackEnd.PersonCRUDOperation
+import ObjectCRUD.PersonCRUDOperation
+
 
 class UpdateCustomer extends JFrame{
 
@@ -123,9 +124,9 @@ class UpdateCustomer extends JFrame{
 
     var getCustomerNames = new PersonCRUDOperation()
 
-    var results = getCustomerNames.findCustomerNames()
+//    var results = getCustomerNames.findCustomerNames()
 
-    cmbCustomerName.addItem(results)
+//    cmbCustomerName.addItem(results)
 
   }
   def createNewCustomer(): Unit ={

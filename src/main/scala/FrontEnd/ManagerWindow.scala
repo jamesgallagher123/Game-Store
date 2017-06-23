@@ -3,7 +3,6 @@ package FrontEnd
 /**
   * Created by Profile on 22/06/2017.
   */
-import JDBCCRUD.GUI.Main
 
 import scalafx.Includes._
 import scalafx.scene.Scene

@@ -1,8 +1,8 @@
-package pages
+package FrontEnd.GUI
 
 import java.sql.SQLException
 
-import BackEnd.{Customer, Games, PersonCRUDOperation}
+import ObjectCRUD.PersonCRUDOperation
 
 import scala.collection.mutable.ListBuffer
 import scalafx.scene.Scene
@@ -32,26 +32,7 @@ class DeleteCustomerWindow extends Scene {
   }
 
 
-  try {
-    deleteCustomer.createDatabaseConenction()
 
-    var preparedStatement = deleteCustomer.connection.prepareStatement(s"SELECT fullname FROM customers")
-
-    var resultSet = preparedStatement.executeQuery()
-
-    while (resultSet.next()){
-
-      var getCustomerName = resultSet.getString("fullname")
-      customers.getItems.addAll(getCustomerName)
-
-    }
-
-    println("Data Retrieved")
-  } catch {
-    case e: SQLException => e.printStackTrace()
-  } finally {
-    deleteCustomer.connection.close()
-  }
 
 
   val fullName = new TextField() {
@@ -73,35 +54,7 @@ class DeleteCustomerWindow extends Scene {
     relocate(130, 200)
     onMouseClicked = (e: MouseEvent) => {
 
-      try {
-        deleteCustomer.createDatabaseConenction()
 
-        var seletectedItem = customers.getValue
-
-        var preparedStatement = deleteCustomer.connection.prepareStatement(s"SELECT customerid, fullname, emailaddress, points FROM customers WHERE fullname='$seletectedItem'")
-
-        var resultSet = preparedStatement.executeQuery()
-
-        if (resultSet.next()){
-
-          val getCustomerName = resultSet.getString("fullname")
-          val getCustomerEmail = resultSet.getString("emailaddress")
-          val getCustomerPoints = resultSet.getString("points")
-          val getCustomerID = resultSet.getString("customerid")
-
-          fullName.setText(getCustomerName)
-          emailAddress.setText(getCustomerEmail)
-          points.setText(getCustomerPoints)
-        }
-
-        println("Data Retrieved")
-
-        println(retrievedCustomerID)
-      } catch {
-        case e: SQLException => e.printStackTrace()
-      } finally {
-        deleteCustomer.connection.close()
-      }
 
     }
   }
@@ -112,11 +65,11 @@ class DeleteCustomerWindow extends Scene {
       var getCustomerName = fullName.getText
       var getCustomerEmail = emailAddress.getText
       var getCustomerPoints = points.getText.toInt
-      if(deleteCustomer.updateCustomerDetails(retrievedCustomerID.toInt,getCustomerName,getCustomerEmail,getCustomerPoints)=="Success"){
-        println("Employee Deleted")
-      }else{
-        failedLogin.setVisible(true)
-      }
+//      if(deleteCustomer.updateCustomerDetails(retrievedCustomerID.toInt,getCustomerName,getCustomerEmail,getCustomerPoints)=="Success"){
+//        println("Employee Deleted")
+//      }else{
+//        failedLogin.setVisible(true)
+//      }
     }
   }
 

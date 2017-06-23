@@ -1,8 +1,9 @@
-package pages
+package FrontEnd.GUI
 
 import BackEnd.GameStore
-import FrontEnd.{CreateEmployee, CreateItem}
-import pages.ReportsAndReceipts.Reports
+import FrontEnd.{CreateEmployee, CreateItem, ManagerWindow, ViewItemsWindow}
+import pages.pages.ReportsAndReceipts.Reports
+import pages.{TransactionsWindow, ViewGamesWindow, ViewHardwareWindow, ViewMiscWindow}
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage

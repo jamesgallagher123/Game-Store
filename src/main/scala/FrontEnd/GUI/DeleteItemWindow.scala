@@ -1,11 +1,11 @@
-package pages
+package FrontEnd.GUI
 
 /**
   * Created by Global InfoTech Dev on 23/06/2017.
   */
 import java.sql.SQLException
 
-import BackEnd.{Customer, Games, PersonCRUDOperation}
+import ObjectCRUD.PersonCRUDOperation
 
 import scala.collection.mutable.ListBuffer
 import scalafx.scene.Scene
@@ -35,26 +35,7 @@ class DeleteItemWindow extends Scene {
   }
 
 
-  try {
-    deleteItem.createDatabaseConenction()
 
-    var preparedStatement = deleteItem.connection.prepareStatement(s"SELECT name FROM items")
-
-    var resultSet = preparedStatement.executeQuery()
-
-    while (resultSet.next()){
-
-      var getCustomerName = resultSet.getString("name")
-      itemname.getItems.addAll(getCustomerName)
-
-    }
-
-    println("Data Retrieved")
-  } catch {
-    case e: SQLException => e.printStackTrace()
-  } finally {
-    deleteItem.connection.close()
-  }
 
 
   val itemName = new TextField() {
@@ -76,35 +57,7 @@ class DeleteItemWindow extends Scene {
     relocate(130, 200)
     onMouseClicked = (e: MouseEvent) => {
 
-      try {
-        deleteItem.createDatabaseConenction()
 
-        var seletectedItem = itemname.getValue
-
-        var preparedStatement = deleteItem.connection.prepareStatement(s"SELECT customerid, fullname, emailaddress, points FROM customers WHERE fullname='$seletectedItem'")
-
-        var resultSet = preparedStatement.executeQuery()
-
-        if (resultSet.next()){
-
-          val getCustomerName = resultSet.getString("fullname")
-          val getCustomerEmail = resultSet.getString("emailaddress")
-          val getCustomerPoints = resultSet.getString("points")
-          val getCustomerID = resultSet.getString("customerid")
-
-          itemName.setText(getCustomerName)
-          quantity.setText(getCustomerEmail)
-          price.setText(getCustomerPoints)
-        }
-
-        println("Data Retrieved")
-
-        println(retrievedCustomerID)
-      } catch {
-        case e: SQLException => e.printStackTrace()
-      } finally {
-        deleteItem.connection.close()
-      }
 
     }
   }

@@ -22,7 +22,7 @@ class TransactionsWindow extends Scene {
   val receiptItems2 = new Games(4321, "xbox game", 39.99, 5, "01/01/2001")
   gamestore.itemsListBuffer += receiptItems1
   gamestore.itemsListBuffer += receiptItems2
-  val customer = new Customer(123, "Custo Mer", 1000)
+  val customer = new Customer(123, "Custo Mer", "email@email.com", 1000)
   gamestore.customerListBuffer += customer
 
 

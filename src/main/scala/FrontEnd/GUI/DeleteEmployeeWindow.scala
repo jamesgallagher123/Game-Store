@@ -1,11 +1,11 @@
-package pages
+package FrontEnd.GUI
 
 /**
   * Created by Global InfoTech Dev on 23/06/2017.
   */
 import java.sql.SQLException
 
-import BackEnd.{Customer, Games, PersonCRUDOperation}
+import ObjectCRUD.PersonCRUDOperation
 
 import scala.collection.mutable.ListBuffer
 import scalafx.scene.Scene
@@ -33,26 +33,7 @@ class DeleteEmployeeWindow extends Scene {
   }
 
 
-  try {
-    deleteEmployee.createDatabaseConenction()
 
-    var preparedStatement = deleteEmployee.connection.prepareStatement(s"SELECT fullname FROM employees")
-
-    var resultSet = preparedStatement.executeQuery()
-
-    while (resultSet.next()){
-
-      var getEmployeeName = resultSet.getString("fullname")
-      employee.getItems.addAll(getEmployeeName)
-
-    }
-
-    println("Data Retrieved")
-  } catch {
-    case e: SQLException => e.printStackTrace()
-  } finally {
-    deleteEmployee.connection.close()
-  }
 
 
   val fullName = new TextField() {
@@ -69,32 +50,7 @@ class DeleteEmployeeWindow extends Scene {
     relocate(130, 170)
     onMouseClicked = (e: MouseEvent) => {
 
-      try {
-        deleteEmployee.createDatabaseConenction()
 
-        var seletectedItem = employee.getValue
-
-        var preparedStatement = deleteEmployee.connection.prepareStatement(s"SELECT customerid, fullname, emailaddress FROM employee WHERE fullname='$seletectedItem'")
-
-        var resultSet = preparedStatement.executeQuery()
-
-        if (resultSet.next()){
-
-          val getCustomerName = resultSet.getString("fullname")
-          val getCustomerEmail = resultSet.getString("emailaddress")
-          val getCustomerID = resultSet.getString("customerid")
-
-          fullName.setText(getCustomerName)
-          emailAddress.setText(getCustomerEmail)
-        }
-
-        println("Data Retrieved")
-
-      } catch {
-        case e: SQLException => e.printStackTrace()
-      } finally {
-        deleteEmployee.connection.close()
-      }
 
     }
   }
