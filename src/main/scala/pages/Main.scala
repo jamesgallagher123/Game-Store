@@ -39,16 +39,18 @@ object Main extends JFXApp {
   var crudStaffWindow:CRUDStaffWindow = new CRUDStaffWindow
 
 
-  val receiptItems1 = new Hardware(4321, "xbox one", 249.99, 1, "01/06/2015")
+  val receiptItems1 = new Hardware(4321, "xbox one", 249.99, 2, "01/06/2015")
   val receiptItems2 = new Games(4321, "xbox game", 39.99, 5, "17/01/2017")
   val receiptItems3 = new Games(4321, "second-hand game", 16.99, 14, "05/04/2014")
   gameStore.itemsListBuffer += receiptItems1
   gameStore.itemsListBuffer += receiptItems2
+  gameStore.itemsListBuffer += receiptItems3
   val customer1 = new Customer(123, "Custo Mer 1", "cust.omer@hotmail.com", 1000)
-  val customer2 = new Customer(123, "Custo Mer 2", "cust.omer@hotmail.com", 500)
-  val customer3 = new Customer(123, "Custo Mer 3","cust.omer@hotmail.com", 0)
-
+  val customer2 = new Customer(134, "Custo Mer 2", "cust.omer@hotmail.com", 500)
+  val customer3 = new Customer(156, "Custo Mer 3","cust.omer@hotmail.com", 0)
   gameStore.customerListBuffer += customer1
+  gameStore.customerListBuffer += customer2
+  gameStore.customerListBuffer += customer3
 
   setWindow("login")
 
