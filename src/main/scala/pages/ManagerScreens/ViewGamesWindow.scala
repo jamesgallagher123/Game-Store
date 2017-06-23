@@ -26,7 +26,7 @@ class ViewGamesWindow extends Scene{
   val backButton: Button = new Button("Back") {
     relocate(250, 260)
     onMouseClicked = (e: MouseEvent) => {
-      Main.setWindow("viewitems")
+      Main.setWindow("viewItemsManager")
     }
   }
 
